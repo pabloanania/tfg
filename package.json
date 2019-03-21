@@ -1,0 +1,29 @@
+{
+  "name": "tfgprototype",
+  "version": "1.0.0",
+  "description": "TFG - Prototype",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "moment": "^2.22.1",
+    "mongodb": "^3.1.13",
+    "mongoose": "^5.0.17",
+    "npm": "^6.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pabloanania/tparqweb.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pabloanania/tparqweb/issues"
+  },
+  "homepage": "https://github.com/pabloanania/tparqweb#readme"
+}
