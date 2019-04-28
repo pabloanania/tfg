@@ -22,13 +22,25 @@ app.get(['/libs/*', '/css/*', '/ico/*', '/js/*'], (req, res) => {
 });
 
 // Inicia servidor
-app.listen(3000, function () {
+app.listen(5000, function () {
     console.log('Server NodeJs + Express encendido...');
 });
 
 
 
 // API
+
+// Genera el código a partir del json pasado por parámetro
+app.post('/api/codegenerator', (req, res) => {
+    var events = req.body.events;
+
+    var generated = generateCSharpCode(events);
+
+    res.status(200).send(generated);
+});
+
+
+
 // EJEMPLO: Obtiene providers por id
 app.get('/api/providers/:id', (req, res) => {
     mongoFindOne(ObjectId(req.params.id), "pabloanania", "messages", function(foundObj){
@@ -75,6 +87,43 @@ app.put('/api/providers/:id', (req, res) => {
     res.status(200).end();
 });
 
+
+// CODE GENERATOR
+function generateCSharpCode(inputEvents){
+    var generated = "";
+    
+    var startNode = [];
+    var updateNode = [];
+    var fixedUpdateNode = [];
+    var onCollisionEnterNode = [];
+    var onCollisionStayNode = [];
+
+    var currentNode;
+
+    for (var i=0; i<inputEvents.length; i++){
+        var event = inputEvents[i];
+
+        for (var i=0; i<event.conditions.length; i++){
+            var condition = event.conditions[i];
+
+            switch (condition.name){
+                case "always":
+                    currentNode = updateNode;
+                    break;
+            }
+        }
+
+        for (var i=0; i<event.actions.length; i++){
+            var action = event.actions[i];
+
+            switch (action.name){
+                case "set_y_position":
+                    currentNode.push(action.entity + ".Transform.position.y = " + action.parameters.value);
+                    break;
+            }
+        }
+    }
+}
 
 
 // DATABASE

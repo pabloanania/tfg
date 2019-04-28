@@ -1,28 +1,26 @@
 {
-	"name": "Event Test",
+	"name": "EventTest",
 	"events": [
 		{
 			"conditions": [
-        {
-          "name": "always",
-          "entity": "System"
-        }
-			],
-			"actions FALTA": [
 				{
-					"id": "set-y",
-					"objectClass": "Disparo",
-					"sid": 355477948820730,
+					"name": "always",
+					"entity": "System"
+				}
+			],
+			"actions": [
+				{
+					"name": "set_y_position",
+					"entity": "Disparo",
 					"parameters": {
-						"y": "Disparo.Y - 10"
+						"value": "Disparo.Y - 10"
 					}
 				},
 				{
-					"id": "set-y",
-					"objectClass": "Materia",
-					"sid": 416934959796435,
+					"name": "set_y_position",
+					"entity": "Materia",
 					"parameters": {
-						"y": "Materia.Y + 2"
+						"value": "Materia.Y + 2"
 					}
 				}
 			]
@@ -37,22 +35,20 @@
 					}
 				}
 			],
-			"actions FALTA": [
+			"actions": [
 				{
-					"id": "set-instvar-value",
-					"objectClass": "TextoFeedback",
-					"sid": 872450446889849,
+					"name": "set_attribute_value",
+					"entity": "TextoFeedback",
 					"parameters": {
-						"instance-variable": "TiempoMostrarse",
+						"attribute_name": "TiempoMostrarse",
 						"value": "TextoFeedback. TiempoMostrarse - 1"
 					}
 				},
 				{
-					"id": "set-instvar-value",
-					"objectClass": "GameMaster",
-					"sid": 155583426460578,
+					"name": "set_attribute_value",
+					"entity": "GameMaster",
 					"parameters": {
-						"instance-variable": "TiempoCreacionMateria",
+						"attribute_name": "TiempoCreacionMateria",
 						"value": "GameMaster.TiempoCreacionMateria + random(11)"
 					}
 				}
@@ -65,27 +61,26 @@
 					"entity": "Keyboard",
 					"parameters": {
 						"keycode": "39"
-				  }
+					}
 				},
 				{
 					"name": "x_position_is",
-          "entity": "Avatar",
-          "operators": [
-            "AND"
-          ],
+					"entity": "Avatar",
+					"operators": [
+						"AND"
+					],
 					"parameters": {
 						"operator": "LT",
 						"x_position": "800"
 					}
 				}
 			],
-			"actions FALTA": [
+			"actions": [
 				{
-					"id": "set-x",
-					"objectClass": "Avatar",
-					"sid": 488065690749485,
+					"name": "set_x_position",
+					"entity": "Avatar",
 					"parameters": {
-						"x": "Avatar.X + 5"
+						"value": "Avatar.X + 5"
 					}
 				}
 			]
@@ -97,30 +92,29 @@
 					"entity": "Keyboard",
 					"parameters": {
 						"keycode": "37"
-				  }
+					}
 				},
-        {
-          "name": "x_position_is",
-          "entity": "Avatar",
-          "operators": [
-            "AND"
-          ],
-          "parameters": {
-            "operator": "GT",
-            "x_position": "20"
-          }
-        }
-			],
-			"actions FALTA": [
 				{
-					"id": "set-x",
-					"objectClass": "Avatar",
-					"sid": 911616467236662,
+					"name": "x_position_is",
+					"entity": "Avatar",
+					"operators": [
+						"AND"
+					],
 					"parameters": {
-						"x": "Avatar.X - 5"
+						"operator": "GT",
+						"x_position": "20"
 					}
 				}
 			],
+			"actions": [
+				{
+					"name": "set_x_position",
+					"entity": "Avatar",
+					"parameters": {
+						"value": "Avatar.X - 5"
+					}
+				}
+			]
 		},
 		{
 			"conditions": [
@@ -129,19 +123,18 @@
 					"entity": "Keyboard",
 					"parameters": {
 						"keycode": "16"
-				  }
+					}
 				}
 			],
-			"actions FALTA": [
+			"actions": [
 				{
-					"id": "create-object",
-					"objectClass": "System",
-					"sid": 176629668910527,
+					"name": "create_entity",
+					"entity": "System",
 					"parameters": {
-						"object-to-create": "Disparo",
-						"layer": "0",
-						"x": "Avatar.X",
-						"y": "Avatar.Y"
+						"entity": "Disparo",
+						"x_position": "Avatar.X",
+						"y_position": "Avatar.Y",
+						"z_position": "Avatar.Z"
 					}
 				}
 			]
@@ -149,25 +142,23 @@
 		{
 			"conditions": [
 				{
-					"id": "collides_with",
+					"name": "collides_with",
 					"entity": "Disparo",
 					"parameters": {
 						"entity": "Materia"
 					}
 				}
 			],
-			"actions FALTA": [
+			"actions": [
 				{
-					"id": "destroy",
-					"objectClass": "Disparo",
-					"sid": 362632526753436
+					"name": "destroy_entity",
+					"entity": "Disparo"
 				},
 				{
-					"id": "set-instvar-value",
-					"objectClass": "Materia",
-					"sid": 597161370094310,
+					"name": "set_attribute_value",
+					"entity": "Materia",
 					"parameters": {
-						"instance-variable": "Calificacion",
+						"attribute_name": "Calificacion",
 						"value": "Materia.Calificacion + 1"
 					}
 				}
@@ -186,36 +177,33 @@
 				},
 				{
 					"name": "y_position_is",
-          "entity": "Materia",
-          "operators": [
-            "AND"
-          ],
+					"entity": "Materia",
+					"operators": [
+						"AND"
+					],
 					"parameters": {
 						"comparison": "GT",
 						"y_position": "600"
 					}
 				}
 			],
-			"actions FALTA": [
+			"actions": [
 				{
-					"id": "set-text",
-					"objectClass": "TextoFeedback",
-					"sid": 503126801265796,
+					"name": "set_text",
+					"entity": "TextoFeedback",
 					"parameters": {
 						"text": "\"REPROBADO!!\""
 					}
 				},
 				{
-					"id": "destroy",
-					"objectClass": "Materia",
-					"sid": 148785238963419
+					"name": "destroy_entity",
+					"entity": "Materia"
 				},
 				{
-					"id": "set-instvar-value",
-					"objectClass": "TextoFeedback",
-					"sid": 219112699740303,
+					"name": "set_attribute_value",
+					"entity": "TextoFeedback",
 					"parameters": {
-						"instance-variable": "TiempoMostrarse",
+						"attribute_name": "TiempoMostrarse",
 						"value": "3"
 					}
 				}
@@ -231,26 +219,23 @@
 					}
 				}
 			],
-			"actions FALTA": [
+			"actions": [
 				{
-					"id": "set-text",
-					"objectClass": "TextoFeedback",
-					"sid": 151256201928065,
+					"name": "set_text",
+					"entity": "TextoFeedback",
 					"parameters": {
 						"text": "\"REPROBADO!!\""
 					}
 				},
 				{
-					"id": "destroy",
-					"objectClass": "Materia",
-					"sid": 751045099620504
+					"name": "destroy_entity",
+					"entity": "Materia"
 				},
 				{
-					"id": "set-instvar-value",
-					"objectClass": "TextoFeedback",
-					"sid": 102650968846959,
+					"name": "set_attribute_value",
+					"entity": "TextoFeedback",
 					"parameters": {
-						"instance-variable": "TiempoMostrarse",
+						"attribute_name": "TiempoMostrarse",
 						"value": "3"
 					}
 				}
@@ -269,44 +254,41 @@
 				},
 				{
 					"name": "y_position_is",
-          "entity": "Materia",
-          "operators": [
-            "AND"
-          ],
+					"entity": "Materia",
+					"operators": [
+						"AND"
+					],
 					"parameters": {
 						"comparison": "GT",
 						"y_position": "600"
 					}
 				}
 			],
-			"actions FALTA": [
+			"actions": [
 				{
-					"id": "set-text",
-					"objectClass": "TextoFeedback",
-					"sid": 849426024572192,
+					"name": "set_text",
+					"entity": "TextoFeedback",
 					"parameters": {
 						"text": "\"APROBADO CON \" + Materia.Calificacion + \"!\""
 					}
 				},
 				{
-					"id": "destroy",
-					"objectClass": "Materia",
-					"sid": 860245137442205
+					"name": "destroy_entity",
+					"entity": "Materia"
 				},
 				{
-					"id": "set-instvar-value",
-					"objectClass": "TextoFeedback",
-					"sid": 164635486643416,
+					"name": "set_attribute_value",
+					"entity": "TextoFeedback",
 					"parameters": {
-						"instance-variable": "TiempoMostrarse",
+						"attribute_name": "TiempoMostrarse",
 						"value": "3"
 					}
 				}
 			]
 		},
 		{
-      "conditions": [
-  			{
+			"conditions": [
+				{
 					"name": "attribute_value_is",
 					"entity": "TextoFeedback",
 					"parameters": {
@@ -315,12 +297,11 @@
 						"attribute_value": "0"
 					}
 				}
-      ],
-			"actions FALTA": [
+			],
+			"actions": [
 				{
-					"id": "set-text",
-					"objectClass": "TextoFeedback",
-					"sid": 638703787992470,
+					"name": "set_text",
+					"entity": "TextoFeedback",
 					"parameters": {
 						"text": ""
 					}
@@ -328,7 +309,7 @@
 			]
 		},
 		{
-      "conditions": [
+			"conditions": [
 				{
 					"name": "attribute_value_is",
 					"entity": "Materia",
@@ -338,50 +319,47 @@
 						"attribute_value": "10"
 					}
 				}
-      ],
-			"actions FALTA": [
+			],
+			"actions": [
 				{
-					"id": "set-instvar-value",
-					"objectClass": "Materia",
-					"sid": 901453894509115,
+					"name": "set_attribute_value",
+					"entity": "Materia",
 					"parameters": {
-						"instance-variable": "Calificacion",
+						"attribute_name": "Calificacion",
 						"value": "10"
 					}
 				}
 			]
 		},
 		{
-      "conditions": [
-        {
-          "name": "attribute_value_is",
-          "entity": "GameMaster",
-          "parameters": {
-            "attribute_name": "TiempoCreacionMateria",
-            "operator": "GE",
-            "attribute_value": "10"
-          }
-        }
-      ],
-			"actions FALTA": [
+			"conditions": [
 				{
-					"id": "set-instvar-value",
-					"objectClass": "GameMaster",
-					"sid": 399553644118542,
+					"name": "attribute_value_is",
+					"entity": "GameMaster",
 					"parameters": {
-						"instance-variable": "TiempoCreacionMateria",
+						"attribute_name": "TiempoCreacionMateria",
+						"operator": "GE",
+						"attribute_value": "10"
+					}
+				}
+			],
+			"actions": [
+				{
+					"name": "set_attribute_value",
+					"entity": "GameMaster",
+					"parameters": {
+						"attribute_name": "TiempoCreacionMateria",
 						"value": "0"
 					}
 				},
 				{
-					"id": "create-object",
-					"objectClass": "System",
-					"sid": 995728775692029,
+					"name": "create_entity",
+					"entity": "System",
 					"parameters": {
-						"object-to-create": "Materia",
-						"layer": "0",
-						"x": "random(800)",
-						"y": "0"
+						"entity": "Materia",
+						"x_position": "0",
+						"y_position": "Random(800)",
+						"z_position": "0"
 					}
 				}
 			]
