@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoDb = require('mongodb');
+const mustache = require('mustache');
 
 const app = express();
 const ObjectId = require('mongodb').ObjectID;
@@ -35,56 +36,9 @@ app.post('/api/nodegenerator', (req, res) => {
     var events = req.body.events;
 
     var generated = generateCSharpNodes(events);
+    var code = generateCSharpCode(generated)
 
-    res.status(200).send(generated);
-});
-
-
-
-// EJEMPLO: Obtiene providers por id
-app.get('/api/providers/:id', (req, res) => {
-    mongoFindOne(ObjectId(req.params.id), "pabloanania", "messages", function (foundObj) {
-        if (foundObj) {
-            res.json(foundObj);
-        } else {
-            res.status(404).end();
-        }
-    });
-});
-
-// EJEMPLO: Añade nuevo provider
-app.post('/api/providers', (req, res) => {
-    mongoInsert(req.body, "pabloanania", "messages", { "id": -1 }, function (e) {
-        // FIX: Obtiene el ultimo id. Al ser string lo parsea y vuelve a convertirlo a string para ser compatible con el formato de la base
-        if (e.length > 0 && e[0].id != undefined)
-            req.body.id = (parseInt(e[0].id) + 1).toString();
-
-        // En caso de que el body no traiga los campos necesarios, los crea
-        if (req.body.name == undefined)
-            req.body.name = "";
-        if (req.body.address == undefined)
-            req.body.address = "";
-        if (req.body.contacto == undefined)
-            req.body.contacto = "";
-
-        // Inserta el elemento del body
-        mongoInsert(req.body, "tp", "messages");
-
-        res.status(201).send(req.body);
-    });
-});
-
-// EJEMPLO: Elimina provider
-app.delete('/api/providers/:id', (req, res) => {
-    mongoDeleteOne({ "id": req.params.id }, "pabloanania", "messages");
-    res.status(204).end();
-});
-
-// EJEMPLO: Actualiza provider
-app.put('/api/providers/:id', (req, res) => {
-    mongoUpdateOne({ "id": req.params.id }, req.body, "pabloanania", "messages");
-
-    res.status(200).end();
+    res.status(200).send(code);
 });
 
 
@@ -136,8 +90,13 @@ function generateCSharpNodes(inputEvents) {
                     break;
 
                 case "collides_with":
-                    auxCond["type"] = "if";
-                    auxCond["parameters"] = condition.entity + "_Entity.CollidesWith(" + condition.parameters.entity + "_Entity)";
+                    auxCond["type"] = "filter";
+                    auxCond["parameters"] = condition.entity + ".CollidesWith(" + condition.parameters.entity + ")";
+                    break;
+
+                case "x_position_is":
+                    auxCond["type"] = "filter";
+                    auxCond["parameters"] = condition.entity + ".XPositionIs(" + condition.parameters.x_position + ", '" + condition.parameters.operator + "')";
                     break;
             }
 
@@ -151,13 +110,13 @@ function generateCSharpNodes(inputEvents) {
 
             switch (action.name) {
                 case "set_x_position":
-                    auxAct = action.entity + ".Transform.position.y = " + action.parameters.value + ";";
+                    auxAct = action.entity + ".Transform.position.x = " + action.parameters.value + ";";
                     break;
                 case "set_y_position":
                     auxAct = action.entity + ".Transform.position.y = " + action.parameters.value + ";";
                     break;
                 case "set_z_position":
-                    auxAct = action.entity + ".Transform.position.y = " + action.parameters.value + ";";
+                    auxAct = action.entity + ".Transform.position.z = " + action.parameters.value + ";";
                     break;
                 case "destroy_entity":
                     auxAct = "Destroy(" + action.entity + ");";
@@ -175,6 +134,97 @@ function generateCSharpNodes(inputEvents) {
     codeNodes["fixedUpdateNode"] = fixedUpdateNode;
 
     return codeNodes;
+}
+
+function generateCSharpCode(inputNodes) {
+    var code =
+        `
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class NewBehaviourScript : MonoBehaviour {
+    private List<Disparo_Entity> allDisparo;
+    private List<Disparo_Entity> allMateria;
+    private List<Disparo_Entity> allAlumno;
+
+	void Start () {
+        initializeEntitiesList();
+
+        ` +
+        view.convertNodeToCode(inputNodes["startNode"])
+        + `
+		
+	}
+	
+	void Update () {
+        ` +
+        view.convertNodeToCode(inputNodes["updateNode"])
+        + `
+    }
+    
+	void FixedUpdate () {
+        ` +
+        view.convertNodeToCode(inputNodes["fixedUpdateNode"])
+        + `
+	}
+}
+    `;
+
+    view.inputNodes = inputNodes;
+
+    return code;
+}
+
+var view = {
+    inputNodes: [],
+    convertNodeToCode: function (codeNode) {
+        var code = "";
+
+        for (var i = 0; i < codeNode.length; i++) {
+            var conditions = codeNode[i].conditions;
+            var actions = codeNode[i].actions;
+            var curlyCloseCount = 0;
+
+            code += `
+            newEvent();
+            `;
+
+
+            for (var j = 0; j < conditions.length; j++) {
+                var condition = conditions[j];
+
+                if (condition.type != null){
+                    switch (condition.type) {
+                        case "if":
+                            code += `
+                                if(` + condition.parameters + `){
+                                    `;
+                            curlyCloseCount++;
+                            break;
+                        case "filter":
+                            code += `
+                                filter(` + condition.parameters + `);
+                                `;
+                            break;
+                    }
+                }
+            }
+
+            for (var j = 0; j < actions.length; j++) {
+                var action = actions[j];
+                code += action;
+            }
+
+            for (var j = 0; j < curlyCloseCount; j++) {
+                code += `
+                    }
+                    `;
+            }
+        }
+
+        return code;
+    }
 }
 
 
