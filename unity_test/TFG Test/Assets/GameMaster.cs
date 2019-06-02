@@ -51,9 +51,6 @@ public class GameMaster : MonoBehaviour
 
         /* ACTIONS */
         foreach (Entity Materia in filteredMateria) { Destroy(Materia.gameObject); }
-
-        /* EVENT CLEANUP */
-        Cleanup();
     }
 
     void FixedUpdate()
@@ -69,21 +66,5 @@ public class GameMaster : MonoBehaviour
         filteredPersonaje = allPersonaje;
         filteredDisparo = allDisparo;
         filteredMateria = allMateria;
-    }
-
-    private void Cleanup()
-    {
-        foreach (Entity e in filteredPersonaje)
-        {
-            e.ClearCollisionData();
-        }
-        foreach (Entity e in filteredMateria)
-        {
-            e.ClearCollisionData();
-        }
-        foreach (Entity e in filteredDisparo)
-        {
-            e.ClearCollisionData();
-        }
     }
 }

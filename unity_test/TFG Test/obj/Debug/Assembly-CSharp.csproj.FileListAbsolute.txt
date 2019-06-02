@@ -163,3 +163,4 @@ D:\Facu\TFG\prototype\unity_test\TFG Test\Temp\bin\Debug\UnityEngine.HoloLens.xm
 D:\Facu\TFG\prototype\unity_test\TFG Test\Temp\bin\Debug\UnityEngine.SpatialTracking.xml
 D:\Facu\TFG\prototype\unity_test\TFG Test\obj\Debug\Assembly-CSharp.dll
 D:\Facu\TFG\prototype\unity_test\TFG Test\obj\Debug\Assembly-CSharp.pdb
+D:\Facu\TFG\prototype\unity_test\TFG Test\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache

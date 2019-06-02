@@ -1,0 +1,84 @@
+{
+	"name": "EventTest",
+	"events": [
+		{
+			"conditions": [
+				{
+					"name": "key_name_hold",
+					"entity": "Keyboard",
+					"parameters": {
+						"keyname": "right"
+					}
+				},
+				{
+					"name": "x_position_is",
+					"entity": "Personaje",
+					"operators": [
+						"AND"
+					],
+					"parameters": {
+						"operator": "LT",
+						"x_position": "7"
+					}
+				}
+			],
+			"actions": [
+				{
+					"name": "set_x_position",
+					"entity": "Personaje",
+					"parameters": {
+						"value": "Personaje.X + 0.1f"
+					}
+				}
+			]
+		},
+		{
+			"conditions": [
+				{
+					"name": "key_name_hold",
+					"entity": "Keyboard",
+					"parameters": {
+						"keyname": "left"
+					}
+				},
+				{
+					"name": "x_position_is",
+					"entity": "Personaje",
+					"operators": [
+						"AND"
+					],
+					"parameters": {
+						"operator": "GT",
+						"x_position": "-7"
+					}
+				}
+			],
+			"actions": [
+				{
+					"name": "set_x_position",
+					"entity": "Personaje",
+					"parameters": {
+						"value": "Personaje.X - 0.1f"
+					}
+				}
+			]
+		},
+		{
+			"conditions": [
+				{
+					"name": "collides_with",
+					"entity": "Materia",
+					"parameters": {
+						"entity": "Personaje"
+					}
+				}
+			],
+			"actions": [
+				{
+					"name": "destroy_entity",
+					"entity": "Materia"
+				}
+			]
+		}
+	]
+}

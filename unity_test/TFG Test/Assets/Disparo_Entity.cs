@@ -18,4 +18,9 @@ public class Disparo_Entity : Entity {
     {
         collisions.Add(col.gameObject.name);
     }
+
+    void OnCollisionExit(Collision col)
+    {
+        collisions.Remove(col.gameObject.name);
+    }
 }
