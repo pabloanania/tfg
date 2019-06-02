@@ -138,38 +138,32 @@ function generateCSharpNodes(inputEvents) {
 
 function generateCSharpCode(inputNodes) {
     var code =
-        `
+`
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour {
-    private List<Disparo_Entity> allDisparo;
-    private List<Disparo_Entity> allMateria;
-    private List<Disparo_Entity> allAlumno;
+    
+private List<Disparo_Entity> allDisparo;
+private List<Disparo_Entity> allMateria;
+private List<Disparo_Entity> allAlumno;
 
 	void Start () {
-        initializeEntitiesList();
+initializeEntitiesList();
 
-        ` +
-        view.convertNodeToCode(inputNodes["startNode"])
-        + `
-		
+`+ view.convertNodeToCode(inputNodes["startNode"]) + `
 	}
 	
 	void Update () {
-        ` +
-        view.convertNodeToCode(inputNodes["updateNode"])
-        + `
+` + view.convertNodeToCode(inputNodes["updateNode"]) + `
     }
     
 	void FixedUpdate () {
-        ` +
-        view.convertNodeToCode(inputNodes["fixedUpdateNode"])
-        + `
+` + view.convertNodeToCode(inputNodes["fixedUpdateNode"]) + `
 	}
 }
-    `;
+`;
 
     view.inputNodes = inputNodes;
 
@@ -186,9 +180,7 @@ var view = {
             var actions = codeNode[i].actions;
             var curlyCloseCount = 0;
 
-            code += `
-            newEvent();
-            `;
+            code += "newEvent();\n";
 
 
             for (var j = 0; j < conditions.length; j++) {
@@ -197,15 +189,11 @@ var view = {
                 if (condition.type != null){
                     switch (condition.type) {
                         case "if":
-                            code += `
-                                if(` + condition.parameters + `){
-                                    `;
+                            code += "if(" + condition.parameters + "){\n";
                             curlyCloseCount++;
                             break;
                         case "filter":
-                            code += `
-                                filter(` + condition.parameters + `);
-                                `;
+                            code += "Filter(" + condition.parameters + ");\n";
                             break;
                     }
                 }
@@ -213,13 +201,11 @@ var view = {
 
             for (var j = 0; j < actions.length; j++) {
                 var action = actions[j];
-                code += action;
+                code += action + "\n";
             }
 
             for (var j = 0; j < curlyCloseCount; j++) {
-                code += `
-                    }
-                    `;
+                code += "}\n";
             }
         }
 
