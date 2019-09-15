@@ -1,4 +1,9 @@
 # TFG - Prototype
 ## TO DO
-* Implementar el resto de los nodos de events.json (en prueba de Unity primero y luego en server.js)
+* Arreglar el instantiate o reemplazarlo
+
+## CANDY
 * Implementar Mustache
+
+## KNOWN BUGS
+* Las condiciones de tipo "every_x_time" no pueden ir acompañadas de condiciones que generen curly braces (ej. tipo "if"). Analizar repararla con https://stackoverflow.com/questions/13019433/calling-a-method-every-x-minutes/21590665

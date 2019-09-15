@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Materia_Entity : Entity
 {
+    public int Calificacion;
 
     // Use this for initialization
     void Start()

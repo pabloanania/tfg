@@ -79,6 +79,23 @@
 					"entity": "Materia"
 				}
 			]
+		},
+		{
+			"conditions": [
+				{
+					"name": "every_x_time",
+					"entity": "System",
+					"parameters": {
+						"elapsed_milliseconds": "5000"
+					}
+				}
+			],
+			"actions": [
+				{
+					"name": "destroy_entity",
+					"entity": "Personaje"
+				}
+			]
 		}
 	]
 }

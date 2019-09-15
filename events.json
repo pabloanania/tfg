@@ -182,7 +182,7 @@
 						"AND"
 					],
 					"parameters": {
-						"comparison": "GT",
+						"operator": "GT",
 						"y_position": "600"
 					}
 				}
@@ -259,7 +259,7 @@
 						"AND"
 					],
 					"parameters": {
-						"comparison": "GT",
+						"operator": "GT",
 						"y_position": "600"
 					}
 				}
@@ -303,7 +303,7 @@
 					"name": "set_text",
 					"entity": "TextoFeedback",
 					"parameters": {
-						"text": ""
+						"text": "\"\""
 					}
 				}
 			]
