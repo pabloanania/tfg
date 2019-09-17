@@ -1,6 +1,9 @@
 # TFG - Prototype
 ## TO DO
-* Arreglar el instantiate o reemplazarlo
+* 
+
+## TO FIX
+* El allEntity filteredEntity y Entity (del foreach) deberían estar todos como atributo de la entidad
 
 ## CANDY
 * Implementar Mustache

@@ -65,9 +65,11 @@
     <Compile Include="Assets\Disparo_Entity.cs" />
     <Compile Include="Assets\Entity.cs" />
     <Compile Include="Assets\GameMaster.cs" />
+    <Compile Include="Assets\GameMaster_Entity.cs" />
     <Compile Include="Assets\Materia_Entity.cs" />
     <Compile Include="Assets\Personaje_Entity.cs" />
     <Compile Include="Assets\System_Entity.cs" />
+    <Compile Include="Assets\TextoFeedback_Entity.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>D:/Facu/TFG/prototype/unity_test/TFG Test/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

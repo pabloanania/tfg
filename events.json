@@ -49,7 +49,7 @@
 					"entity": "GameMaster",
 					"parameters": {
 						"attribute_name": "TiempoCreacionMateria",
-						"value": "GameMaster.TiempoCreacionMateria + random(11)"
+						"value": "GameMaster.TiempoCreacionMateria + Random.Range(0,11)"
 					}
 				}
 			]
@@ -132,9 +132,9 @@
 					"entity": "System",
 					"parameters": {
 						"entity": "Disparo",
-						"x_position": "Personaje.X",
-						"y_position": "Personaje.Y",
-						"z_position": "Personaje.Z"
+						"x_position": "filteredPersonaje.First().X",
+						"y_position": "filteredPersonaje.First().Y",
+						"z_position": "filteredPersonaje.First().Z"
 					}
 				}
 			]
@@ -269,7 +269,7 @@
 					"name": "set_text",
 					"entity": "TextoFeedback",
 					"parameters": {
-						"text": "\"APROBADO CON \" + Materia.Calificacion + \"!\""
+						"text": "\"APROBADO CON \" + filteredMateria.First().Calificacion + \"!\""
 					}
 				},
 				{
@@ -358,7 +358,7 @@
 					"parameters": {
 						"entity": "Materia",
 						"x_position": "0",
-						"y_position": "Random(800)",
+						"y_position": "Random.Range(0,800)",
 						"z_position": "0"
 					}
 				}
