@@ -10,17 +10,17 @@
 			],
 			"actions": [
 				{
-					"name": "set_y_position",
+					"name": "set_z_position",
 					"entity": "Disparo",
 					"parameters": {
-						"value": "Disparo.Y - 10"
+						"value": "Disparo.Z + 0.1f"
 					}
 				},
 				{
-					"name": "set_y_position",
+					"name": "set_z_position",
 					"entity": "Materia",
 					"parameters": {
-						"value": "Materia.Y + 2"
+						"value": "Materia.Z - 0.1f"
 					}
 				}
 			]
@@ -80,7 +80,7 @@
 					"name": "set_x_position",
 					"entity": "Personaje",
 					"parameters": {
-						"value": "Personaje.X + 5"
+						"value": "Personaje.X + 0.1f"
 					}
 				}
 			]
@@ -111,7 +111,7 @@
 					"name": "set_x_position",
 					"entity": "Personaje",
 					"parameters": {
-						"value": "Personaje.X - 5"
+						"value": "Personaje.X - 0.1f"
 					}
 				}
 			]
@@ -122,7 +122,7 @@
 					"name": "key_name_press",
 					"entity": "Keyboard",
 					"parameters": {
-						"keyname": "16"
+						"keyname": "space"
 					}
 				}
 			],
@@ -176,14 +176,14 @@
 					}
 				},
 				{
-					"name": "y_position_is",
+					"name": "z_position_is",
 					"entity": "Materia",
 					"operators": [
 						"AND"
 					],
 					"parameters": {
-						"operator": "GT",
-						"y_position": "600"
+						"operator": "LT",
+						"z_position": "-10"
 					}
 				}
 			],
@@ -253,14 +253,14 @@
 					}
 				},
 				{
-					"name": "y_position_is",
+					"name": "z_position_is",
 					"entity": "Materia",
 					"operators": [
 						"AND"
 					],
 					"parameters": {
-						"operator": "GT",
-						"y_position": "600"
+						"operator": "LT",
+						"z_position": "-10"
 					}
 				}
 			],
@@ -357,9 +357,9 @@
 					"entity": "System",
 					"parameters": {
 						"entity": "Materia",
-						"x_position": "0",
-						"y_position": "Random.Range(0,800)",
-						"z_position": "0"
+						"x_position": "Random.Range(-7,7)",
+						"y_position": "0",
+						"z_position": "40"
 					}
 				}
 			]

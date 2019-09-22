@@ -20,7 +20,7 @@ public class Entity : MonoBehaviour
     }
     public float Z
     {
-        get { return transform.position.x; }
+        get { return transform.position.z; }
         set { transform.position = new Vector3(transform.position.x, transform.position.y, value); }
     }
 
@@ -30,10 +30,5 @@ public class Entity : MonoBehaviour
             return true;
         else
             return false;
-    }
-
-    public void ClearCollisionData()
-    {
-        collisions.Clear();
     }
 }
