@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-    protected List<String> collisions = new List<string>();
+    public List<GameObject> collisions = new List<GameObject>();
 
     public float X
     {
@@ -24,9 +24,9 @@ public class Entity : MonoBehaviour
         set { transform.position = new Vector3(transform.position.x, transform.position.y, value); }
     }
 
-    public bool CollidesWith(String entityName)
+    public bool CollidesWith(string entityName)
     {
-        if (collisions.Where(c => c == entityName).Count() > 0)
+        if (collisions.Where(c => c.name == entityName).Count() > 0)
             return true;
         else
             return false;

@@ -20,11 +20,11 @@ public class Materia_Entity : Entity
 
     void OnCollisionEnter(Collision col)
     {
-        collisions.Add(col.gameObject.name);
+        collisions.Add(col.gameObject);
     }
 
     void OnCollisionExit(Collision col)
     {
-        collisions.Remove(col.gameObject.name);
+        collisions.Remove(col.gameObject);
     }
 }
