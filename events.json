@@ -134,7 +134,7 @@
 						"entity": "Disparo",
 						"x_position": "filteredPersonaje.First().X",
 						"y_position": "filteredPersonaje.First().Y",
-						"z_position": "filteredPersonaje.First().Z"
+						"z_position": "filteredPersonaje.First().Z + 1.0f"
 					}
 				}
 			]

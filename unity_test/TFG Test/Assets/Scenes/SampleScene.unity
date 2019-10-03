@@ -212,6 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8c89c933f497724b9ea3099748985cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collisions: []
   TiempoMostrarse: 0
 --- !u!1 &170076733
 GameObject:
@@ -510,7 +511,7 @@ Prefab:
     - target: {fileID: 224332669671268496, guid: ae8e2ed80ac8cd943812ae7a2735391e,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 160
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 224332669671268496, guid: ae8e2ed80ac8cd943812ae7a2735391e,
         type: 2}
@@ -576,6 +577,21 @@ Prefab:
         type: 2}
       propertyPath: m_Color.b
       value: 0.0047169924
+      objectReference: {fileID: 0}
+    - target: {fileID: 114789692756871278, guid: ae8e2ed80ac8cd943812ae7a2735391e,
+        type: 2}
+      propertyPath: m_Text
+      value: Texto
+      objectReference: {fileID: 0}
+    - target: {fileID: 114789692756871278, guid: ae8e2ed80ac8cd943812ae7a2735391e,
+        type: 2}
+      propertyPath: m_FontData.m_HorizontalOverflow
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114789692756871278, guid: ae8e2ed80ac8cd943812ae7a2735391e,
+        type: 2}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae8e2ed80ac8cd943812ae7a2735391e, type: 2}
