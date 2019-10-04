@@ -1,6 +1,5 @@
 # TFG - Prototype
 ## TO DO
-* Agregar la generación de entidades automatizada a events.json
 * Agregar la generación de scripts de entidades automatizada a server.js (un archivo para cada entidad)
 
 ## TO FIX

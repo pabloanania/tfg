@@ -1,5 +1,42 @@
 {
 	"name": "EventTest",
+	"entities": [
+		{
+			"name": "Disparo"
+		},
+		{
+			"name": "GameMaster",
+			"attributes": [
+				{
+					"name": "TiempoCreacionMateria",
+					"type": "int",
+					"value": 0
+				}
+			]
+		},
+		{
+			"name": "Materia",
+			"attributes": [
+				{
+					"name": "Calificacion",
+					"type": "int"
+				}
+			]
+		},
+		{
+			"name": "Personaje"
+		},
+		{
+			"name": "TextoFeedback",
+			"attributes": [
+				{
+					"name": "TiempoMostrarse",
+					"type": "int",
+					"value": 0
+				}
+			]
+		}
+	],
 	"events": [
 		{
 			"conditions": [
