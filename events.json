@@ -2,6 +2,9 @@
 	"name": "EventTest",
 	"entities": [
 		{
+			"name": "System"
+		},
+		{
 			"name": "Disparo"
 		},
 		{

@@ -400,7 +400,7 @@ var view = {
 
         for (var i = 0; i < this.entities.length; i++) {
             var entityName = this.entities[i].name;
-            code += "all" + entityName + " FindObjectsOfType<" + entityName + "_Entity>().ToList();\n";
+            code += "all" + entityName + " = FindObjectsOfType<" + entityName + "_Entity>().ToList();\n";
             code += "filtered" + entityName + " = all" + entityName + ";\n";
         }
 
