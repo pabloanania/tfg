@@ -1,62 +1,189 @@
-<html lang="en" ng-app="ProtoApp">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <link rel="icon" type="image/x-icon"  href="../ico/favicon.ico">
+<html lang="en">
 
-        <title>Cover Template for Bootstrap</title>
-        <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/cover/">
+<head>
+    <title>webapp - Tables</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <!-- Bootstrap core CSS -->
-        <link href="../libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/eventeditormain.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="/css/main.css" media="screen">
+</head>
 
-        <!-- Custom styles for this template -->
-        <link href="../css/cover.css" rel="stylesheet">
+<body>
+    <div class="webapp-container">
+        <!-- INICIO HEADER -->
+        <nav class="navbar navbar-expand justify-content-between fixed-top">
+            <a class="navbar-brand mb-0 h1 d-none d-md-block" href="index.html">
+                UniFace
+            </a>
+        </nav>
+        <!-- FIN HEADER -->
 
-        <!-- Libreria y archivos parametrizacion Angular -->
-        <script src="../libs/angular/angular.js"></script>
-        <script src="../libs/js-url/url.js"></script>
-        <script src="../js/app.js"></script>
-        <script src="../js/provider-edit.component.js"></script>
-    </head>
 
-    <body class="text-center">
+        <!-- INICIO MENU LATERAL -->
+        <div class="webapp-sidebar expand-hover push" id="sidebar">
+            <ul class="sidebar-nav">
+                <li class="sidebar-nav-item">
+                    <a href="../index.html" class="sidebar-nav-link">
+                        <span class="sidebar-nav-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="feather feather-align-justify">
+                                <line x1="21" y1="10" x2="3" y2="10"></line>
+                                <line x1="21" y1="6" x2="3" y2="6"></line>
+                                <line x1="21" y1="14" x2="3" y2="14"></line>
+                                <line x1="21" y1="18" x2="3" y2="18"></line>
+                            </svg>
+                        </span>
+                        <span class="sidebar-nav-name">
+                            Editor Visual de Eventos
+                        </span>
+                        <span class="sidebar-nav-end">
 
-        <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-          <header class="masthead mb-auto">
-            <div class="inner">
-              <h3 class="masthead-brand">Cover</h3>
-              <nav class="nav nav-masthead justify-content-center">
-                <a class="nav-link active" href="#">Home</a>
-                <a class="nav-link" href="#">Features</a>
-                <a class="nav-link" href="#">Contact</a>
-              </nav>
-            </div>
-          </header>
-    
-          <main role="main" class="inner cover">
-            <h1 class="cover-heading">Edicion de Carriers</h1>
-            <p class="lead">Aca podras editar todo sobre el Carrier</p>
+                        </span>
+                    </a>
+                </li>
 
-            <provider-edit></provider-edit>
+                <li class="sidebar-nav-item">
+                    <a href="../index.html" class="sidebar-nav-link">
+                        <span class="sidebar-nav-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="feather feather-edit">
+                                <path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path>
+                                <polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon>
+                            </svg>
+                        </span>
+                        <span class="sidebar-nav-name">
+                            Editor de Entidades
+                        </span>
+                        <span class="sidebar-nav-end">
 
-          </main>
-    
-          <footer class="mastfoot mt-auto">
-            <div class="inner">
-              <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-            </div>
-          </footer>
+                        </span>
+                    </a>
+                </li>
+            </ul>
         </div>
+        <!-- FIN MENU LATERAL -->
 
-        <!-- Bootstrap core JavaScript
-        ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
-        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-        <script src="../libs/bootstrap/js/bootstrap.min.js"></script>
-        <script src="../libs/jquery/jquery-3.3.1.js"></script>
-    </body>
+
+        <!-- INICIO CONTENIDO CENTRAL -->
+        <div class="webapp-content">
+            <div class="webapp-main-content">
+                <div class="container-fluid">
+                    <div class="pb-3">
+                        <h1>Editor Visual de Eventos</h1>
+                    </div>
+
+                    <!-- INICIO EVENTOS -->
+                    <div class="card mb-grid">
+                        <div class="table-responsive-md">
+                            <table class="table table-actions table-striped table-hover mb-0">
+                                <tbody>
+                                    <tr class="condition-el">
+                                        <td class="low-padding"></td>
+                                        <td>
+                                            <span class="badge badge-pill condition-action-el badge-primary">Personaje</span>
+                                            <span class="badge badge-pill condition-action-el badge-success">Colisiona
+                                                con</span>
+                                            <span class="badge badge-pill condition-action-el badge-primary">Enemigo</span>
+                                        </td>
+                                        <td class="low-padding">
+                                            <button class="btn btn-small oi oi-pencil"></button>
+                                            <button class="btn btn-small oi oi-trash"></button>
+                                        </td>
+                                    </tr>
+                                    <tr class="condition-el">
+                                        <td class="low-padding">
+                                            <button class="btn btn-small oi oi-fullscreen-exit"></button>
+                                        </td>
+                                        <td>
+                                            <span class="badge badge-pill condition-action-el badge-success">Presionar
+                                                tecla</span>
+                                            <span class="badge badge-pill condition-action-el badge-primary">Barra
+                                                espaciadora</span>
+                                        </td>
+                                        <td class="low-padding">
+                                            <button class="btn btn-small oi oi-pencil"></button>
+                                            <button class="btn btn-small oi oi-trash"></button>
+                                        </td>
+                                    </tr>
+                                    <tr class="condition-el">
+                                        <td class="low-padding">
+                                            <button class="btn btn-small oi oi-flag"></button>
+                                        </td>
+                                        <td>
+                                        </td>
+                                        <td class="low-padding">
+                                        </td>
+                                    </tr>
+                                    <tr class="action-el">
+                                        <td class="low-padding">
+                                        </td>
+                                        <td>
+                                            <span class="badge badge-pill condition-action-el badge-danger">Destruir</span>
+                                            <span class="badge badge-pill condition-action-el badge-primary">Personaje</span>
+                                        </td>
+                                        <td class="low-padding">
+                                            <button class="btn btn-small oi oi-pencil"></button>
+                                            <button class="btn btn-small oi oi-trash"></button>
+                                        </td>
+                                    </tr>
+                                    <tr class="action-el">
+                                        <td class="low-padding">
+
+                                        </td>
+                                        <td class="low-padding">
+                                            <span class="badge badge-pill condition-action-el badge-primary">Enemigo</span>
+                                            <span class="badge badge-pill condition-action-el badge-danger">Fijar nuevo
+                                                valor a variable</span>
+                                            <span class="badge badge-pill condition-action-el badge-primary">Energia</span>
+                                            <span class="badge badge-pill condition-action-el badge-danger">=</span>
+                                            <span class="badge badge-pill condition-action-el badge-primary">Personaje.Energia
+                                                - 2</span>
+                                        </td>
+                                        <td class="low-padding">
+                                            <button class="btn btn-small oi oi-pencil"></button>
+                                            <button class="btn btn-small oi oi-trash"></button>
+                                        </td>
+                                    </tr>
+                                    <tr class="action-el">
+                                        <td class="low-padding">
+                                            <button class="btn btn-small oi oi-pulse"></button>
+                                        </td>
+                                        <td>
+                                        </td>
+                                        <td class="low-padding">
+                                        </td>
+                                    </tr>
+                                    <tr class="new-event-el">
+                                        <td class="low-padding">
+                                            <button class="btn btn-small oi oi-plus"></button>
+                                        </td>
+                                        <td>
+                                        </td>
+                                        <td class="low-padding">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- FIN EVENTOS -->
+
+                </div>
+            </div>
+        </div>
+        <!-- FIN CONTENIDO CENTRAL -->
+
+
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+
+</body>
+
 </html>

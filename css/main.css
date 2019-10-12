@@ -1,0 +1,68 @@
+/* BOTONES */
+.btn-small{
+    font-size: 0.6rem!important;
+}
+
+.condition-action-el{
+    font-size: 0.8rem;
+}
+
+button.btn.btn-small.oi.oi-plus {
+    color: #fff;
+    background-color: #28a745;
+}
+
+button.btn.btn-small.oi.oi-flag {
+    color: #fff;
+    background-color: #007bff;
+}
+
+button.btn.btn-small.oi.oi-pulse {
+    color: #fff;
+    background-color: #007bff;
+}
+
+button.btn.btn-small.oi.oi-ellipses {
+    color: #fff;
+    background-color: #007bff;
+}
+
+button.btn.btn-small.oi.oi-fullscreen-exit {
+    color: #fff;
+    background-color: #007bff;
+}
+
+button.btn.btn-small.oi.oi-pencil {
+    color: #fff;
+    background-color: #28a745;
+}
+
+button.btn.btn-small.oi.oi-trash {
+    color: #fff;
+    background-color: #dc3545;
+}
+
+/* TABLA */
+.table-striped tbody tr.condition-el:nth-of-type(odd){
+    background-color:#e0e0e0;
+}
+
+.table-striped tbody tr.condition-el:nth-of-type(even){
+    background-color:#eaeaea;
+}
+
+.table-striped tbody tr.action-el:nth-of-type(odd){
+    background-color:#f0f0f0;
+}
+
+.table-striped tbody tr.action-el:nth-of-type(even){
+    background-color:#fafafa;
+}
+
+.table-striped tbody tr.new-event-el{
+    background-color:#f9f9f9;
+}
+
+.low-padding{
+    padding: 0.5rem!important;
+}

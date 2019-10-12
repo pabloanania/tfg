@@ -18,13 +18,13 @@ app.get('/', (req, res) => {
 });
 
 // devuelve archivos del servidor
-app.get(['/libs/*', '/css/*', '/ico/*', '/js/*'], (req, res) => {
+app.get(['/libs/*', '/css/*', '/ico/*', '/js/*', '/fonts/*'], (req, res) => {
     res.sendFile(__dirname + req.originalUrl);
 });
 
 // Inicia servidor
 app.listen(5000, function () {
-    console.log('Server NodeJs + Express encendido...');
+    console.log('Servidor escuchando en port 5000');
 });
 
 
