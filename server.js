@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 });
 
 // devuelve archivos del servidor
-app.get(['/libs/*', '/css/*', '/ico/*', '/js/*', '/fonts/*'], (req, res) => {
+app.get(['/libs/*', '/css/*', '/ico/*', '/js/*', '/fonts/*', '/views/*'], (req, res) => {
     res.sendFile(__dirname + req.originalUrl);
 });
 

@@ -59,7 +59,7 @@ button.btn.btn-small.oi.oi-trash {
     background-color:#fafafa;
 }
 
-.table-striped tbody tr.new-event-el{
+.table-striped tbody tr.new-event-el, .table-striped tbody tr.new-entity-el{
     background-color:#f9f9f9;
 }
 

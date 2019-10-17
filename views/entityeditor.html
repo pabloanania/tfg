@@ -1,0 +1,256 @@
+<html lang="en">
+
+<head>
+    <title>webapp - Tables</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" type="text/css" href="/css/eventeditormain.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="/css/main.css" media="screen">
+</head>
+
+<body>
+    <div class="webapp-container">
+        <!-- HEADER -->
+        <nav class="navbar navbar-expand justify-content-between fixed-top">
+            <a class="navbar-brand mb-0 h1 d-none d-md-block" href="/">
+                UniFace
+            </a>
+        </nav>
+        <!-- FIN HEADER -->
+
+
+        <!-- MENU LATERAL -->
+        <div class="webapp-sidebar expand-hover push" id="sidebar">
+            <ul class="sidebar-nav">
+                <li class="sidebar-nav-item">
+                    <a href="/views/eventeditor.html" class="sidebar-nav-link">
+                        <span class="sidebar-nav-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="feather feather-align-justify">
+                                <line x1="21" y1="10" x2="3" y2="10"></line>
+                                <line x1="21" y1="6" x2="3" y2="6"></line>
+                                <line x1="21" y1="14" x2="3" y2="14"></line>
+                                <line x1="21" y1="18" x2="3" y2="18"></line>
+                            </svg>
+                        </span>
+                        <span class="sidebar-nav-name">
+                            Editor Visual de Eventos
+                        </span>
+                        <span class="sidebar-nav-end">
+
+                        </span>
+                    </a>
+                </li>
+
+                <li class="sidebar-nav-item">
+                    <a href="/views/entityeditor.html" class="sidebar-nav-link">
+                        <span class="sidebar-nav-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="feather feather-edit">
+                                <path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path>
+                                <polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon>
+                            </svg>
+                        </span>
+                        <span class="sidebar-nav-name">
+                            Editor de Entidades
+                        </span>
+                        <span class="sidebar-nav-end">
+
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- FIN MENU LATERAL -->
+
+
+        <!-- CONTENIDO CENTRAL -->
+        <div class="webapp-content">
+            <div class="webapp-main-content">
+                <div class="container-fluid">
+                    <div class="pb-3">
+                        <h1>Editor de Entidades</h1>
+                    </div>
+
+                    <!-- ENTIDADES -->
+                    <div class="card mb-grid">
+                        <div class="table-responsive-md">
+                            <table class="table table-actions table-striped table-hover mb-0">
+                                <tbody>
+                                    <tr class="action-el">
+                                        <td>
+                                            <span class="badge badge-pill condition-action-el badge-primary">Sistema</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge badge-pill condition-action-el badge-secondary">ResolucionX</span>
+                                            <span class="badge badge-pill condition-action-el badge-secondary">ResolucionY</span>
+                                            <span class="badge badge-pill condition-action-el badge-info">NombreSO</span>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-small oi oi-pencil"></button>
+                                            <button class="btn btn-small oi oi-trash"></button>
+                                        </td>
+                                    </tr>
+                                    <tr class="action-el">
+                                        <td>
+                                            <span class="badge badge-pill condition-action-el badge-primary">Personaje</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge badge-pill condition-action-el badge-secondary">Energia</span>
+                                            <span class="badge badge-pill condition-action-el badge-success">Vidas</span>
+                                            <span class="badge badge-pill condition-action-el badge-success">Puntuacion</span>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-small oi oi-pencil" data-toggle="modal" data-target="#entityModal"></button>
+                                            <button class="btn btn-small oi oi-trash"></button>
+                                        </td>
+                                    </tr>
+                                    <tr class="new-entity-el">
+                                        <td class="low-padding">
+                                            <button class="btn btn-small oi oi-plus"></button>
+                                        </td>
+                                        <td>
+                                        </td>
+                                        <td class="low-padding">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- FIN ENTIDADES -->
+
+
+                    <!-- MODAL EDITOR DE ENTIDADEs -->
+                    <div class="modal fade" id="entityModal" tabindex="-1" role="dialog" aria-labelledby="entityModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="entityModalLabel">Editor de Entidades</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label class="form-label" for="exampleInputExpression">Nombre</label>
+                                        <input class="form-control" id="exampleInputExpression" value="Personaje">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="exampleInputExpression">Atributos</label>
+                                        <div class="table-responsive-md">
+                                            <table class="table table-actions table-striped table-hover mb-0">
+                                                <tbody>
+                                                    <tr class="action-el">
+                                                        <td class="low-padding">
+                                                            <span class="badge badge-pill condition-action-el badge-secondary">Energia</span>
+                                                        </td>
+                                                        <td class="low-padding">
+                                                            <button class="btn btn-small oi oi-pencil"></button>
+                                                            <button class="btn btn-small oi oi-trash"></button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="action-el">
+                                                        <td class="low-padding">
+                                                            <span class="badge badge-pill condition-action-el badge-success">Vidas</span>
+                                                        </td>
+                                                        <td class="low-padding">
+                                                            <button class="btn btn-small oi oi-pencil"></button>
+                                                            <button class="btn btn-small oi oi-trash"></button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="action-el">
+                                                        <td class="low-padding">
+                                                            <span class="badge badge-pill condition-action-el badge-success">Puntuacion</span>
+                                                        </td>
+                                                        <td class="low-padding">
+                                                            <button class="btn btn-small oi oi-pencil"></button>
+                                                            <button class="btn btn-small oi oi-trash"></button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="low-padding">
+                                                            <button class="btn btn-small oi oi-plus" data-toggle="modal"
+                                                                data-target="#attributeModal"></button>
+                                                        </td>
+                                                        <td class="low-padding">
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- FIN MODAL MODAL EDITOR DE ENTIDADEs -->
+
+
+                    <!-- MODAL EDITOR DE ATRIBUTOS -->
+                    <div class="modal fade" id="attributeModal" tabindex="-1" role="dialog" aria-labelledby="attributeModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="attributeModalLabel">Editor de Atributos</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <div class="form-group">
+                                            <label class="form-label">Nombre</label>
+                                            <input class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Tipo</label>
+                                            <div class="dropdown">
+                                                <input class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonType"
+                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                                    value="Número entero">
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonType" id="dropdownMenuButtonType"
+                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <a class="dropdown-item" href="#">Número entero</a>
+                                                    <a class="dropdown-item" href="#">Número real</a>
+                                                    <a class="dropdown-item" href="#">Texto</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- FIN MODAL EDITOR DE ATRIBUTOS -->
+
+
+                </div>
+            </div>
+        </div>
+        <!-- FIN CONTENIDO CENTRAL -->
+
+
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
