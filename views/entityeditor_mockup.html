@@ -1,4 +1,4 @@
-<html lang="en" ng-app="UniFaceApp">
+<html lang="en">
 
 <head>
     <title>webapp - Tables</title>
@@ -7,10 +7,6 @@
 
     <link rel="stylesheet" type="text/css" href="/css/eventeditormain.css" media="screen">
     <link rel="stylesheet" type="text/css" href="/css/main.css" media="screen">
-
-    <!-- SCRIPTS PRELOAD -->
-    <script src="../libs/angular/angular.js"></script>
-    <!-- FIN SCRIPTS PRELOAD -->
 </head>
 
 <body>
@@ -80,7 +76,51 @@
                     </div>
 
                     <!-- ENTIDADES -->
-                    <entity-list></entity-list>
+                    <div class="card mb-grid">
+                        <div class="table-responsive-md">
+                            <table class="table table-actions table-striped table-hover mb-0">
+                                <tbody>
+                                    <tr class="action-el">
+                                        <td>
+                                            <span class="badge badge-pill condition-action-el badge-primary">Sistema</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge badge-pill condition-action-el badge-secondary">ResolucionX</span>
+                                            <span class="badge badge-pill condition-action-el badge-secondary">ResolucionY</span>
+                                            <span class="badge badge-pill condition-action-el badge-info">NombreSO</span>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-small oi oi-pencil"></button>
+                                            <button class="btn btn-small oi oi-trash"></button>
+                                        </td>
+                                    </tr>
+                                    <tr class="action-el">
+                                        <td>
+                                            <span class="badge badge-pill condition-action-el badge-primary">Personaje</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge badge-pill condition-action-el badge-secondary">Energia</span>
+                                            <span class="badge badge-pill condition-action-el badge-success">Vidas</span>
+                                            <span class="badge badge-pill condition-action-el badge-success">Puntuacion</span>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-small oi oi-pencil" data-toggle="modal" data-target="#entityModal"></button>
+                                            <button class="btn btn-small oi oi-trash"></button>
+                                        </td>
+                                    </tr>
+                                    <tr class="new-entity-el">
+                                        <td class="low-padding">
+                                            <button class="btn btn-small oi oi-plus"></button>
+                                        </td>
+                                        <td>
+                                        </td>
+                                        <td class="low-padding">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                     <!-- FIN ENTIDADES -->
 
 
@@ -207,13 +247,10 @@
     </div>
 
     <!-- SCRIPTS -->
-    <script src="../js/client.js"></script>
-    <script src="../js/app.js"></script>
-    <script src="../js/event_test.js"></script>
-    <script src="../js/entity.component.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>

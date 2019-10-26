@@ -6,10 +6,6 @@
 
     <link rel="stylesheet" type="text/css" href="/css/eventeditormain.css" media="screen">
     <link rel="stylesheet" type="text/css" href="/css/main.css" media="screen">
-
-    <!-- SCRIPTS PRELOAD -->
-    <script src="../libs/angular/angular.js"></script>
-    <!-- FIN SCRIPTS PRELOAD -->
 </head>
 
 <body>
@@ -79,7 +75,99 @@
                     </div>
 
                     <!-- EVENTOS -->
-                    <event-list></event-list>
+                    <div class="card mb-grid">
+                        <div class="table-responsive-md">
+                            <table class="table table-actions table-striped table-hover mb-0">
+                                <tbody>
+                                    <tr class="condition-el">
+                                        <td class="low-padding"></td>
+                                        <td>
+                                            <span class="badge badge-pill condition-action-el badge-primary">Personaje</span>
+                                            <span class="badge badge-pill condition-action-el badge-success">Colisiona
+                                                con</span>
+                                            <span class="badge badge-pill condition-action-el badge-primary">Enemigo</span>
+                                        </td>
+                                        <td class="low-padding">
+                                            <button class="btn btn-small oi oi-pencil"></button>
+                                            <button class="btn btn-small oi oi-trash"></button>
+                                        </td>
+                                    </tr>
+                                    <tr class="condition-el">
+                                        <td class="low-padding">
+                                            <button class="btn btn-small oi oi-fullscreen-exit"></button>
+                                        </td>
+                                        <td>
+                                            <span class="badge badge-pill condition-action-el badge-success">Presionar
+                                                tecla</span>
+                                            <span class="badge badge-pill condition-action-el badge-primary">Barra
+                                                espaciadora</span>
+                                        </td>
+                                        <td class="low-padding">
+                                            <button class="btn btn-small oi oi-pencil"></button>
+                                            <button class="btn btn-small oi oi-trash"></button>
+                                        </td>
+                                    </tr>
+                                    <tr class="condition-el">
+                                        <td class="low-padding">
+                                            <button class="btn btn-small oi oi-flag"></button>
+                                        </td>
+                                        <td>
+                                        </td>
+                                        <td class="low-padding">
+                                        </td>
+                                    </tr>
+                                    <tr class="action-el">
+                                        <td class="low-padding">
+                                        </td>
+                                        <td>
+                                            <span class="badge badge-pill condition-action-el badge-danger">Destruir</span>
+                                            <span class="badge badge-pill condition-action-el badge-primary">Personaje</span>
+                                        </td>
+                                        <td class="low-padding">
+                                            <button class="btn btn-small oi oi-pencil"></button>
+                                            <button class="btn btn-small oi oi-trash"></button>
+                                        </td>
+                                    </tr>
+                                    <tr class="action-el">
+                                        <td class="low-padding">
+
+                                        </td>
+                                        <td class="low-padding">
+                                            <span class="badge badge-pill condition-action-el badge-primary">Enemigo</span>
+                                            <span class="badge badge-pill condition-action-el badge-danger">Fijar nuevo
+                                                valor a variable</span>
+                                            <span class="badge badge-pill condition-action-el badge-primary">Energia</span>
+                                            <span class="badge badge-pill condition-action-el badge-danger">=</span>
+                                            <span class="badge badge-pill condition-action-el badge-primary">Personaje.Energia
+                                                - 2</span>
+                                        </td>
+                                        <td class="low-padding">
+                                            <button class="btn btn-small oi oi-pencil"></button>
+                                            <button class="btn btn-small oi oi-trash"></button>
+                                        </td>
+                                    </tr>
+                                    <tr class="action-el">
+                                        <td class="low-padding">
+                                            <button class="btn btn-small oi oi-pulse"></button>
+                                        </td>
+                                        <td>
+                                        </td>
+                                        <td class="low-padding">
+                                        </td>
+                                    </tr>
+                                    <tr class="new-event-el">
+                                        <td class="low-padding">
+                                            <button class="btn btn-small oi oi-plus" data-toggle="modal" data-target="#conditionActionModal"></button>
+                                        </td>
+                                        <td>
+                                        </td>
+                                        <td class="low-padding">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                     <!-- FIN EVENTOS -->
 
 
@@ -207,13 +295,10 @@
     </div>
 
     <!-- SCRIPTS -->
-    <script src="../js/client.js"></script>
-    <script src="../js/app.js"></script>
-    <script src="../js/event_test.js"></script>
-    <script src="../js/event.component.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>
