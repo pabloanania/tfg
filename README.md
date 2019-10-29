@@ -1,8 +1,18 @@
 # TFG - Prototype
 ## TO DO
 * Crear evento
+** Ver porqué duplica condiciones
+*** Parece que está creando listeners cada vez que se genera un nuevo evento, evitar eso!
+** El editor de expresiones tiene que customizarse según sea necesario
 * Crear condición
 * Crear acción
+* Cambiar por value en API (conditions):
+** elapsed-miliseconds
+** keyname
+** x_position 
+** y_position
+** z_position
+** attribute_value
 
 ## TO FIX
 * Mientras más veces se llama a generar código (sin apagar server), más veces se generan InvokeCallback duplicados

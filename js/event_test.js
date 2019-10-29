@@ -72,7 +72,7 @@ var eventTest =
 					"name": "every_x_time",
 					"entity": "System",
 					"parameters": {
-						"elapsed_milliseconds": "1000"
+						"value": "1000"
 					}
 				}
 			],
@@ -101,7 +101,7 @@ var eventTest =
 					"name": "key_name_hold",
 					"entity": "System",
 					"parameters": {
-						"keyname": "right"
+						"value": "right"
 					}
 				},
 				{
@@ -112,7 +112,7 @@ var eventTest =
 					],
 					"parameters": {
 						"operator": "LT",
-						"x_position": "7"
+						"value": "7"
 					}
 				}
 			],
@@ -132,7 +132,7 @@ var eventTest =
 					"name": "key_name_hold",
 					"entity": "System",
 					"parameters": {
-						"keyname": "left"
+						"value": "left"
 					}
 				},
 				{
@@ -143,7 +143,7 @@ var eventTest =
 					],
 					"parameters": {
 						"operator": "GT",
-						"x_position": "-7"
+						"value": "-7"
 					}
 				}
 			],
@@ -163,7 +163,7 @@ var eventTest =
 					"name": "key_name_press",
 					"entity": "System",
 					"parameters": {
-						"keyname": "space"
+						"value": "space"
 					}
 				}
 			],
@@ -213,7 +213,7 @@ var eventTest =
 					"parameters": {
 						"attribute_name": "Calificacion",
 						"operator": "LT",
-						"attribute_value": "4"
+						"value": "4"
 					}
 				},
 				{
@@ -224,7 +224,7 @@ var eventTest =
 					],
 					"parameters": {
 						"operator": "LT",
-						"z_position": "-10"
+						"value": "-10"
 					}
 				}
 			],
@@ -290,7 +290,7 @@ var eventTest =
 					"parameters": {
 						"attribute_name": "Calificacion",
 						"operator": "GE",
-						"attribute_value": "4"
+						"value": "4"
 					}
 				},
 				{
@@ -301,7 +301,7 @@ var eventTest =
 					],
 					"parameters": {
 						"operator": "LT",
-						"z_position": "-10"
+						"value": "-10"
 					}
 				}
 			],
@@ -335,7 +335,7 @@ var eventTest =
 					"parameters": {
 						"attribute_name": "TiempoMostrarse",
 						"operator": "LE",
-						"attribute_value": "0"
+						"value": "0"
 					}
 				}
 			],
@@ -357,7 +357,7 @@ var eventTest =
 					"parameters": {
 						"attribute_name": "Calificacion",
 						"operator": "GT",
-						"attribute_value": "10"
+						"value": "10"
 					}
 				}
 			],
@@ -380,7 +380,7 @@ var eventTest =
 					"parameters": {
 						"attribute_name": "TiempoCreacionMateria",
 						"operator": "GE",
-						"attribute_value": "10"
+						"value": "10"
 					}
 				}
 			],

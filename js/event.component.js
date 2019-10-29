@@ -4,7 +4,7 @@ angular.module('UniFaceApp').component('eventList', {
     `<div class="card mb-grid" ng-controller="EventListController">
       <div class="table-responsive-md">
         <table class="table table-actions table-striped table-hover mb-0">
-          <tbody ng-repeat="(key, val) in events">
+          <tbody ng-repeat="(key, val) in events track by $index">
             <tr class="condition-el" ng-repeat="(k, v) in events[key].conditions">
               <td class="low-padding">
                 <button class="btn btn-small oi oi-fullscreen-exit"></button>
@@ -48,7 +48,7 @@ angular.module('UniFaceApp').component('eventList', {
           <tbody>
             <tr class="new-event-el">
             <td class="low-padding">
-              <button class="btn btn-small oi oi-plus" data-toggle="modal" data-target="#conditionActionModal"></button>
+              <button class="btn btn-small oi oi-plus" ng-click="newEvent()"></button>
             </td>
             <td>
             </td>
@@ -75,37 +75,37 @@ angular.module('UniFaceApp').controller('EventListController', function ($scope,
     switch (el.name) {
       case "key_name_hold":
         prnt += `<span class="badge badge-pill condition-action-el badge-success">Al presionar la tecla</span>
-                <span class="badge badge-pill condition-action-el badge-primary">` + el.parameters.keyname + '</span>';
+                <span class="badge badge-pill condition-action-el badge-primary">` + el.parameters.value + '</span>';
         break;
       case "key_name_press":
         prnt += `<span class="badge badge-pill condition-action-el badge-success">Al mantener presionada la tecla</span>
-                <span class="badge badge-pill condition-action-el badge-primary">` + el.parameters.keyname + '</span>';
+                <span class="badge badge-pill condition-action-el badge-primary">` + el.parameters.value + '</span>';
         break;
       case "every_x_time":
         prnt += `<span class="badge badge-pill condition-action-el badge-success">Al trascurrir</span>
-                <span class="badge badge-pill condition-action-el badge-primary">` + el.parameters.elapsed_milliseconds + `</span>
+                <span class="badge badge-pill condition-action-el badge-primary">` + el.parameters.value + `</span>
                 <span class="badge badge-pill condition-action-el badge-success">milisegundos</span>`;
         break;
       case "x_position_is":
         prnt += `<span class="badge badge-pill condition-action-el badge-success">Tiene una posición X</span>
               <span class="badge badge-pill condition-action-el badge-danger">` + convertEquality(el.parameters.operator) + `</span>
-              <span class="badge badge-pill condition-action-el badge-primary">` + el.parameters.x_position + '</span>';
+              <span class="badge badge-pill condition-action-el badge-primary">` + el.parameters.value + '</span>';
         break;
       case "y_position_is":
         prnt += `<span class="badge badge-pill condition-action-el badge-success">Tiene una posición Y</span>
               <span class="badge badge-pill condition-action-el badge-danger">` + convertEquality(el.parameters.operator) + `</span>
-              <span class="badge badge-pill condition-action-el badge-primary">` + el.parameters.y_position + '</span>';
+              <span class="badge badge-pill condition-action-el badge-primary">` + el.parameters.value + '</span>';
         break;
       case "z_position_is":
         prnt += `<span class="badge badge-pill condition-action-el badge-success">Tiene una posición Z</span>
               <span class="badge badge-pill condition-action-el badge-danger">` + convertEquality(el.parameters.operator) + `</span>
-              <span class="badge badge-pill condition-action-el badge-primary">` + el.parameters.z_position + '</span>';
+              <span class="badge badge-pill condition-action-el badge-primary">` + el.parameters.value + '</span>';
         break;
       case "attribute_value_is":
         prnt += `<span class="badge badge-pill condition-action-el badge-success">Tiene un valor del atributo</span>
               <span class="badge badge-pill condition-action-el badge-primary">` + el.parameters.attribute_name + `</span>
               <span class="badge badge-pill condition-action-el badge-danger">` + convertEquality(el.parameters.operator) + `</span>
-              <span class="badge badge-pill condition-action-el badge-primary">` + el.parameters.attribute_value + '</span>';
+              <span class="badge badge-pill condition-action-el badge-primary">` + el.parameters.value + '</span>';
         break;
       case "collides_with":
         prnt += `<span class="badge badge-pill condition-action-el badge-success">Colisiona con</span>
@@ -170,5 +170,33 @@ angular.module('UniFaceApp').controller('EventListController', function ($scope,
     }
 
     return $sce.trustAsHtml(prnt);
+  }
+
+  $scope.newEvent = function(){
+    var currentEvent = {conditions: [], actions: []};
+    var ngScope = $scope;
+
+    $("#conditionActionModal").modal();
+
+    $(".condition-action-selected").click(function(){
+      currentEvent.conditions[0] = {
+        entity: this.getAttribute("entity-name"),
+        name: this.getAttribute("condition-name")
+      };
+
+      $("#expressionModal").modal();
+    });
+
+    $(".expression-selected").click(function(){
+      currentEvent.conditions[0]["parameters"] = {
+        operator: $("#dropdownMenuButtonOperator")[0].value,
+        value: $("#inputExpression")[0].value
+      };
+
+      ngScope.events.push(currentEvent);
+      $scope.$apply();
+      $("#expressionModal").modal("toggle");
+      $("#conditionActionModal").modal("toggle");
+    });
   }
 });
