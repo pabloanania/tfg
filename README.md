@@ -1,18 +1,19 @@
 # TFG - Prototype
 ## TO DO
-* Crear evento
-** Ver porqué duplica condiciones
-*** Parece que está creando listeners cada vez que se genera un nuevo evento, evitar eso!
-** El editor de expresiones tiene que customizarse según sea necesario
-* Crear condición
-* Crear acción
-* Cambiar por value en API (conditions):
-** elapsed-miliseconds
-** keyname
-** x_position 
-** y_position
-** z_position
-** attribute_value
+* Editor de Entidades
+* Nuevo proyecto
+* Almacenar proyecto
+* Cargar proyecto
+* Cambiar value por... (en API -conditions-):
+ * elapsed-miliseconds
+ * keyname
+ * x_position 
+ * y_position
+ * z_position
+ * attribute_value
+ * text
+ * Arreglar lo de crear nueva instancia ya no es de system sino de la entidad en si
+* Descarga de .cs desde el editor visual
 
 ## TO FIX
 * Mientras más veces se llama a generar código (sin apagar server), más veces se generan InvokeCallback duplicados
@@ -25,6 +26,7 @@
 * Agregar manejo de animaciones
 * Que diga la puntuación del aprobado
 * Tooltips para los iconos del editor de eventos
+* Implementar los operators de condiciones (AND, OR, NOT)
 
 ## KNOWN BUGS
 * Las condiciones de tipo "every_x_time" no pueden ir acompañadas de condiciones que generen curly braces (ej. tipo "if"). Analizar repararla con https://stackoverflow.com/questions/13019433/calling-a-method-every-x-minutes/21590665

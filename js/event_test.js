@@ -233,7 +233,7 @@ var eventTest =
 					"name": "set_text",
 					"entity": "TextoFeedback",
 					"parameters": {
-						"text": "\"REPROBADO!!\""
+						"value": "\"REPROBADO!!\""
 					}
 				},
 				{
@@ -265,7 +265,7 @@ var eventTest =
 					"name": "set_text",
 					"entity": "TextoFeedback",
 					"parameters": {
-						"text": "\"REPROBADO!!\""
+						"value": "\"REPROBADO!!\""
 					}
 				},
 				{
@@ -310,7 +310,7 @@ var eventTest =
 					"name": "set_text",
 					"entity": "TextoFeedback",
 					"parameters": {
-						"text": "\"APROBADO CON \" + filteredMateria.First().Calificacion + \"!\""
+						"value": "\"APROBADO CON \" + filteredMateria.First().Calificacion + \"!\""
 					}
 				},
 				{
@@ -344,7 +344,7 @@ var eventTest =
 					"name": "set_text",
 					"entity": "TextoFeedback",
 					"parameters": {
-						"text": "\"\""
+						"value": "\"\""
 					}
 				}
 			]

@@ -1,6 +1,6 @@
 <html lang="es" ng-app="UniFaceApp">
 <head>
-    <title>webapp - Tables</title>
+    <title>UniFace - Editor Visual de Eventos</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -82,125 +82,6 @@
                     <event-list></event-list>
                     <!-- FIN EVENTOS -->
 
-
-                    <!-- MODAL SELECTOR DE CONDICIONES/ACCIONES -->
-                    <div class="modal fade" id="conditionActionModal" tabindex="-1" role="dialog" aria-labelledby="conditionActionModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="conditionActionModalLabel">Editor de Condiciones</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="card mb-grid">
-                                        <div class="table-responsive-md">
-                                            <table class="table table-actions table-striped table-hover mb-0">
-                                                <tbody>
-                                                    <tr class="action-el">
-                                                        <td class="low-padding">
-                                                            <span class="badge badge-pill condition-action-el badge-primary">Sistema</span>
-                                                        </td>
-                                                        <td>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="action-el">
-                                                        <td class="low-padding">
-                                                            <div class="dropdown">
-                                                                <span class="badge badge-pill condition-action-el badge-primary dropdown-toggle"
-                                                                    id="dropdownMenuButtonPersonaje" data-toggle="dropdown"
-                                                                    aria-haspopup="true" aria-expanded="false">Personaje</span>
-                                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonPersonaje">
-                                                                    <a class="dropdown-item condition-action-selected" entity-name="Personaje"
-                                                                        condition-name="x_position_is">Cuando la
-                                                                        posición X tiene cierto valor</a>
-                                                                    <a class="dropdown-item" href="#" data-toggle="modal"
-                                                                        data-target="#expressionModal">Cuando la
-                                                                        posición X tiene cierto valor</a>
-                                                                    <a class="dropdown-item" href="#">Cuando la
-                                                                        posición Y tiene cierto valor</a>
-                                                                    <a class="dropdown-item" href="#">Cuando la
-                                                                        posición Z tiene cierto valor</a>
-                                                                    <a class="dropdown-item" href="#">Cuando el valor
-                                                                        de un atributo tiene cierto valor</a>
-                                                                    <a class="dropdown-item" href="#">Al colisionar con
-                                                                        una instancia de otra entidad</a>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="action-el">
-                                                        <td class="low-padding">
-                                                            <span class="badge badge-pill condition-action-el badge-primary">Enemigo</span>
-                                                        </td>
-                                                        <td>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- FIN MODAL SELECTOR DE CONDICIONES/ACCIONES -->
-
-
-                    <!-- MODAL EDITOR DE EXPRESIONES -->
-                    <div class="modal fade" id="expressionModal" tabindex="-1" role="dialog" aria-labelledby="expressionModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="conditionActionModalLabel">Editor de Expresiones</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="form-group">
-                                        <label class="form-label" for="exampleInputExpression">Seleccione operador</label>
-                                        <div class="form-group">
-                                            <div class="dropdown">
-                                                <input class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonOperator"
-                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                                    value="EQ">
-                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonOperator"
-                                                    id="dropdownMenuButtonOperator" data-toggle="dropdown"
-                                                    aria-haspopup="true" aria-expanded="false">
-                                                    <a class="dropdown-item" href="#">GT</a>
-                                                    <a class="dropdown-item" href="#">GE</a>
-                                                    <a class="dropdown-item" href="#">EQ</a>
-                                                    <a class="dropdown-item" href="#">LE</a>
-                                                    <a class="dropdown-item" href="#">LT</a>
-                                                    <a class="dropdown-item" href="#">NE</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-label" for="inputExpression">Ingrese expresión</label>
-                                        <input class="form-control" id="inputExpression">
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary expression-selected">Aceptar</button>
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- FIN MODAL EDITOR DE EXPRESIONES -->
-
-
                 </div>
             </div>
         </div>
@@ -217,6 +98,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+    <script src="../libs/swal2/sweetalert2.all.js"></script>
 </body>
 
 </html>
