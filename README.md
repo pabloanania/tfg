@@ -1,19 +1,10 @@
 # TFG - Prototype
 ## TO DO
-* Editor de Entidades
+* Arreglar lo de crear nueva instancia ya no es de system sino de la entidad en si
+* Descarga de .cs desde el editor visual (exportar proyecto)
 * Nuevo proyecto
 * Almacenar proyecto
 * Cargar proyecto
-* Cambiar value por... (en API -conditions-):
- * elapsed-miliseconds
- * keyname
- * x_position 
- * y_position
- * z_position
- * attribute_value
- * text
- * Arreglar lo de crear nueva instancia ya no es de system sino de la entidad en si
-* Descarga de .cs desde el editor visual
 
 ## TO FIX
 * Mientras más veces se llama a generar código (sin apagar server), más veces se generan InvokeCallback duplicados

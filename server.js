@@ -82,19 +82,19 @@ function generateCSharpNodes(inputEvents) {
                 case "key_name_hold":
                     currentNode = updateNode;
                     auxCond["type"] = "if";
-                    auxCond["parameters"] = "Input.GetKey(\"" + condition.parameters.keyname + "\")";
+                    auxCond["parameters"] = "Input.GetKey(\"" + condition.parameters.value + "\")";
                     break;
 
                 case "key_name_press":
                     currentNode = updateNode;
                     auxCond["type"] = "if";
-                    auxCond["parameters"] = "Input.GetKeyDown(\"" + condition.parameters.keyname + "\")";
+                    auxCond["parameters"] = "Input.GetKeyDown(\"" + condition.parameters.value + "\")";
                     break;
 
                 case "key_name_release":
                     currentNode = updateNode;
                     auxCond["type"] = "if";
-                    auxCond["parameters"] = "Input.GetKeyUp(\"" + condition.parameters.keyname + "\")";
+                    auxCond["parameters"] = "Input.GetKeyUp(\"" + condition.parameters.value + "\")";
                     break;
 
                 case "any_key_down":
@@ -117,35 +117,35 @@ function generateCSharpNodes(inputEvents) {
                 case "x_position_is":
                     currentNode = updateNode;
                     auxCond["type"] = "filter&&if";
-                    auxCond["parameters"] = "e => e.X " + getCSharpComparer(condition.parameters.operator) + " " + condition.parameters.x_position;
+                    auxCond["parameters"] = "e => e.X " + getCSharpComparer(condition.parameters.operator) + " " + condition.parameters.value;
                     auxCond["entity"] = condition.entity;
                     break;
 
                 case "y_position_is":
                     currentNode = updateNode;
                     auxCond["type"] = "filter&&if";
-                    auxCond["parameters"] = "e => e.Y " + getCSharpComparer(condition.parameters.operator) + " " + condition.parameters.y_position;
+                    auxCond["parameters"] = "e => e.Y " + getCSharpComparer(condition.parameters.operator) + " " + condition.parameters.value;
                     auxCond["entity"] = condition.entity;
                     break;
 
                 case "z_position_is":
                     currentNode = updateNode;
                     auxCond["type"] = "filter&&if";
-                    auxCond["parameters"] = "e => e.Z " + getCSharpComparer(condition.parameters.operator) + " " + condition.parameters.z_position;
+                    auxCond["parameters"] = "e => e.Z " + getCSharpComparer(condition.parameters.operator) + " " + condition.parameters.value;
                     auxCond["entity"] = condition.entity;
                     break;
 
                 case "attribute_value_is":
                     currentNode = updateNode;
                     auxCond["type"] = "filter&&if";
-                    auxCond["parameters"] = "e => e." + condition.parameters.attribute_name + " " + getCSharpComparer(condition.parameters.operator) + " " + condition.parameters.attribute_value;
+                    auxCond["parameters"] = "e => e." + condition.parameters.attribute_name + " " + getCSharpComparer(condition.parameters.operator) + " " + condition.parameters.value;
                     auxCond["entity"] = condition.entity;
                     break;
 
                 case "every_x_time":
                     currentNode = startNode;
                     auxCond["type"] = "invoke";
-                    auxCond["parameters"] = ", " + condition.parameters.elapsed_milliseconds / 1000 + "f, " + condition.parameters.elapsed_milliseconds / 1000 + "f);\n";
+                    auxCond["parameters"] = ", " + condition.parameters.value / 1000 + "f, " + condition.parameters.value / 1000 + "f);\n";
                     break;
             }
 
@@ -174,7 +174,7 @@ function generateCSharpNodes(inputEvents) {
                     break;
 
                 case "set_text":
-                    auxAct["parameters"] = action.entity + ".GetComponent<UnityEngine.UI.Text>().text = " + action.parameters.text + ";";
+                    auxAct["parameters"] = action.entity + ".GetComponent<UnityEngine.UI.Text>().text = " + action.parameters.value + ";";
                     auxAct["entity"] = action.entity;
                     break;
 
@@ -184,7 +184,7 @@ function generateCSharpNodes(inputEvents) {
                     break;
 
                 case "create_entity":
-                    auxAct["parameters"] = "var aux = Instantiate(" + action.parameters.entity + "Prefab, new Vector3(" + action.parameters.x_position + ", " + action.parameters.y_position + ", " + action.parameters.z_position + "), Quaternion.identity); aux.name = \"" + action.parameters.entity + "_Entity\";";
+                    auxAct["parameters"] = "var aux = Instantiate(" + action.entity + "Prefab, new Vector3(" + action.parameters.x_position + ", " + action.parameters.y_position + ", " + action.parameters.z_position + "), Quaternion.identity); aux.name = \"" + action.entity + "_Entity\";";
                     auxAct["entity"] = action.entity;
                     break;
 

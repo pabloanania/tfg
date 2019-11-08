@@ -3,10 +3,12 @@ var eventTest =
 	"name": "EventTest",
 	"entities": [
 		{
-			"name": "System"
+			"name": "System",
+			"attributes": []
 		},
 		{
-			"name": "Disparo"
+			"name": "Disparo",
+			"attributes": []
 		},
 		{
 			"name": "GameMaster",
@@ -28,7 +30,8 @@ var eventTest =
 			]
 		},
 		{
-			"name": "Personaje"
+			"name": "Personaje",
+			"attributes": []
 		},
 		{
 			"name": "TextoFeedback",
@@ -170,9 +173,8 @@ var eventTest =
 			"actions": [
 				{
 					"name": "create_entity",
-					"entity": "System",
+					"entity": "Disparo",
 					"parameters": {
-						"entity": "Disparo",
 						"x_position": "filteredPersonaje.First().X",
 						"y_position": "filteredPersonaje.First().Y",
 						"z_position": "filteredPersonaje.First().Z + 1.0f"
@@ -395,9 +397,8 @@ var eventTest =
 				},
 				{
 					"name": "create_entity",
-					"entity": "System",
+					"entity": "Materia",
 					"parameters": {
-						"entity": "Materia",
 						"x_position": "Random.Range(-7,7)",
 						"y_position": "0",
 						"z_position": "40"

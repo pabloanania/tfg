@@ -83,121 +83,6 @@
                     <entity-list></entity-list>
                     <!-- FIN ENTIDADES -->
 
-
-                    <!-- MODAL EDITOR DE ENTIDADEs -->
-                    <div class="modal fade" id="entityModal" tabindex="-1" role="dialog" aria-labelledby="entityModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="entityModalLabel">Editor de Entidades</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="form-group">
-                                        <label class="form-label" for="exampleInputExpression">Nombre</label>
-                                        <input class="form-control" id="exampleInputExpression" value="Personaje">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-label" for="exampleInputExpression">Atributos</label>
-                                        <div class="table-responsive-md">
-                                            <table class="table table-actions table-striped table-hover mb-0">
-                                                <tbody>
-                                                    <tr class="action-el">
-                                                        <td class="low-padding">
-                                                            <span class="badge badge-pill condition-action-el badge-secondary">Energia</span>
-                                                        </td>
-                                                        <td class="low-padding">
-                                                            <button class="btn btn-small oi oi-pencil"></button>
-                                                            <button class="btn btn-small oi oi-trash"></button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="action-el">
-                                                        <td class="low-padding">
-                                                            <span class="badge badge-pill condition-action-el badge-success">Vidas</span>
-                                                        </td>
-                                                        <td class="low-padding">
-                                                            <button class="btn btn-small oi oi-pencil"></button>
-                                                            <button class="btn btn-small oi oi-trash"></button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="action-el">
-                                                        <td class="low-padding">
-                                                            <span class="badge badge-pill condition-action-el badge-success">Puntuacion</span>
-                                                        </td>
-                                                        <td class="low-padding">
-                                                            <button class="btn btn-small oi oi-pencil"></button>
-                                                            <button class="btn btn-small oi oi-trash"></button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="low-padding">
-                                                            <button class="btn btn-small oi oi-plus" data-toggle="modal"
-                                                                data-target="#attributeModal"></button>
-                                                        </td>
-                                                        <td class="low-padding">
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- FIN MODAL MODAL EDITOR DE ENTIDADEs -->
-
-
-                    <!-- MODAL EDITOR DE ATRIBUTOS -->
-                    <div class="modal fade" id="attributeModal" tabindex="-1" role="dialog" aria-labelledby="attributeModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="attributeModalLabel">Editor de Atributos</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="form-group">
-                                        <div class="form-group">
-                                            <label class="form-label">Nombre</label>
-                                            <input class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="form-label">Tipo</label>
-                                            <div class="dropdown">
-                                                <input class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonType"
-                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                                    value="Número entero">
-                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonType" id="dropdownMenuButtonType"
-                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <a class="dropdown-item" href="#">Número entero</a>
-                                                    <a class="dropdown-item" href="#">Número real</a>
-                                                    <a class="dropdown-item" href="#">Texto</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- FIN MODAL EDITOR DE ATRIBUTOS -->
-
-
                 </div>
             </div>
         </div>
@@ -214,6 +99,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+    <script src="../libs/swal2/sweetalert2.all.js"></script>
 </body>
 
 </html>
