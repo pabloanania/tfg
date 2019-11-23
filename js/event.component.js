@@ -203,9 +203,17 @@ angular.module('UniFaceApp').component('eventList', {
 });
 
 angular.module('UniFaceApp').controller('EventListController', function ($scope, $sce, $http) {
-    $scope.name = eventTest.name;
-    $scope.entities = eventTest.entities;
-    $scope.events = eventTest.events;
+    // Recupera datos de session de ser posible, sino crea una nueva sheet
+    if (sessionStorage["eventSheet"] != undefined) {
+        var eventSheet = JSON.parse(sessionStorage["eventSheet"]);
+    } else {
+        var eventSheet = getNewUniFaceSheet();
+    }
+
+    // Setea variables de scope
+    $scope.name = eventSheet.name;
+    $scope.entities = eventSheet.entities;
+    $scope.events = eventSheet.events;
     $scope.parentScope = $scope;
 
     // Genera HTML para condiciones
@@ -354,6 +362,8 @@ angular.module('UniFaceApp').controller('EventListController', function ($scope,
                 if (res.value) {
                     ngScope.events.splice(eventIndex, 1);
                     ngScope.$apply();
+
+                    persistSession(ngScope.events, ngScope.entities);
                 }
             });
         }
@@ -363,6 +373,8 @@ angular.module('UniFaceApp').controller('EventListController', function ($scope,
         var ngScope = parentScope;
 
         ngScope.events[eventIndex].actions.splice(actionIndex, 1);
+
+        persistSession(ngScope.events, ngScope.entities);
     }
 
     $scope.newAction = function (eventIndex, parentScope) {
@@ -451,5 +463,7 @@ angular.module('UniFaceApp').controller('EventListController', function ($scope,
 
         if ($("#expressionModal").is(":visible"))
             $("#expressionModal").modal("toggle");
+
+        persistSession(ngScope.events, ngScope.entities);
     }
 });

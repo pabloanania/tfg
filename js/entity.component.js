@@ -139,7 +139,17 @@ angular.module('UniFaceApp').component('entityList', {
 });
 
 angular.module('UniFaceApp').controller('EntityListController', function ($scope, $sce, $http) {
-    $scope.entities = eventTest.entities;
+    // Recupera datos de session de ser posible, sino crea una nueva sheet
+    if (sessionStorage["eventSheet"] != undefined){
+        var eventSheet = JSON.parse(sessionStorage["eventSheet"]);
+    }else{
+        var eventSheet = getNewUniFaceSheet();
+    }
+
+    // Setea variables de scope
+    $scope.name = eventSheet.name;
+    $scope.entities = eventSheet.entities;
+    $scope.events = eventSheet.events;
     $scope.parentScope = $scope;
 
     $scope.newEntity = function (parentScope) {
@@ -174,6 +184,8 @@ angular.module('UniFaceApp').controller('EntityListController', function ($scope
             if (res.value) {
                 ngScope.entities.splice(entityIndex, 1);
                 ngScope.$apply();
+
+                persistSession(ngScope.events, ngScope.entities);
             }
         });
     }
@@ -225,5 +237,7 @@ angular.module('UniFaceApp').controller('EntityListController', function ($scope
                 ngScope.entities[ngScope.entityIndex] = ngScope.currentEntity;
                 break;
         }
+
+        persistSession(ngScope.events, ngScope.entities);
     }
 });

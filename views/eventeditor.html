@@ -1,4 +1,5 @@
 <html lang="es" ng-app="UniFaceApp">
+
 <head>
     <title>UniFace - Editor Visual de Eventos</title>
     <meta charset="utf-8">
@@ -9,6 +10,10 @@
 
     <!-- SCRIPTS PRELOAD -->
     <script src="../libs/angular/angular.js"></script>
+    <script src="../js/client.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/event_test.js"></script>
+    <script src="../js/event.component.js"></script>
     <!-- FIN SCRIPTS PRELOAD -->
 </head>
 
@@ -25,49 +30,164 @@
 
         <!-- MENU LATERAL -->
         <div class="webapp-sidebar expand-hover push" id="sidebar">
-                <ul class="sidebar-nav">
-                    <li class="sidebar-nav-item">
-                        <a href="/views/eventeditor.html" class="sidebar-nav-link">
-                            <span class="sidebar-nav-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                    class="feather feather-align-justify">
-                                    <line x1="21" y1="10" x2="3" y2="10"></line>
-                                    <line x1="21" y1="6" x2="3" y2="6"></line>
-                                    <line x1="21" y1="14" x2="3" y2="14"></line>
-                                    <line x1="21" y1="18" x2="3" y2="18"></line>
-                                </svg>
-                            </span>
-                            <span class="sidebar-nav-name">
-                                Editor Visual de Eventos
-                            </span>
-                            <span class="sidebar-nav-end">
-    
-                            </span>
-                        </a>
-                    </li>
-    
-                    <li class="sidebar-nav-item">
-                        <a href="/views/entityeditor.html" class="sidebar-nav-link">
-                            <span class="sidebar-nav-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                    class="feather feather-edit">
-                                    <path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path>
-                                    <polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon>
-                                </svg>
-                            </span>
-                            <span class="sidebar-nav-name">
-                                Editor de Entidades
-                            </span>
-                            <span class="sidebar-nav-end">
-    
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <!-- FIN MENU LATERAL -->
+            <ul class="sidebar-nav">
+                <li class="sidebar-nav-item">
+                    <a href="/views/eventeditor.html" class="sidebar-nav-link">
+                        <span class="sidebar-nav-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="feather feather-align-justify">
+                                <line x1="21" y1="10" x2="3" y2="10"></line>
+                                <line x1="21" y1="6" x2="3" y2="6"></line>
+                                <line x1="21" y1="14" x2="3" y2="14"></line>
+                                <line x1="21" y1="18" x2="3" y2="18"></line>
+                            </svg>
+                        </span>
+                        <span class="sidebar-nav-name">
+                            Editor Visual de Eventos
+                        </span>
+                        <span class="sidebar-nav-end">
+
+                        </span>
+                    </a>
+                </li>
+
+                <li class="sidebar-nav-item">
+                    <a href="/views/entityeditor.html" class="sidebar-nav-link">
+                        <span class="sidebar-nav-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="feather feather-edit">
+                                <path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path>
+                                <polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon>
+                            </svg>
+                        </span>
+                        <span class="sidebar-nav-name">
+                            Editor Visual de Entidades
+                        </span>
+                        <span class="sidebar-nav-end">
+
+                        </span>
+                    </a>
+                </li>
+
+                <li class="sidebar-nav-item">
+                    <a class="sidebar-nav-link collapsed" data-toggle="collapse" href="#file" aria-expanded="false"
+                        aria-controls="file">
+                        <span class="sidebar-nav-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="feather feather-file">
+                                <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                                <polyline points="13 2 13 9 20 9"></polyline>
+                            </svg>
+                        </span>
+                        <span class="sidebar-nav-name">
+                            Archivo
+                        </span>
+                        <span class="sidebar-nav-end">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="feather feather-chevron-right nav-collapse-icon">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </span>
+                    </a>
+
+                    <ul class="sidebar-sub-nav collapse" id="file">
+                        <li class="sidebar-nav-item">
+                            <div onclick="newSheet()" class="sidebar-nav-link">
+                                <span class="sidebar-nav-abbr">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-file-plus">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                        <polyline points="14 2 14 8 20 8"></polyline>
+                                        <line x1="12" y1="18" x2="12" y2="12"></line>
+                                        <line x1="9" y1="15" x2="15" y2="15"></line>
+                                    </svg>
+                                </span>
+                                <span class="sidebar-nav-name">
+                                    Nuevo
+                                </span>
+                            </div>
+                        </li>
+                        <li class="sidebar-nav-item">
+                            <div data-toggle="modal" data-target="#openSheetModal" class="sidebar-nav-link">
+                                <span class="sidebar-nav-abbr">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-folder">
+                                        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                                    </svg>
+                                </span>
+                                <span class="sidebar-nav-name">
+                                    Abrir
+                                </span>
+                            </div>
+                        </li>
+                        <li class="sidebar-nav-item">
+                            <div data-toggle="modal" data-target="#saveSheetModal" class="sidebar-nav-link">
+                                <span class="sidebar-nav-abbr">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-file-text">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                        <polyline points="14 2 14 8 20 8"></polyline>
+                                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                                        <polyline points="10 9 9 9 8 9"></polyline>
+                                    </svg>
+                                </span>
+                                <span class="sidebar-nav-name">
+                                    Guardar
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="sidebar-nav-item">
+                    <a class="sidebar-nav-link collapsed" data-toggle="collapse" href="#export" aria-expanded="false"
+                        aria-controls="export">
+                        <span class="sidebar-nav-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="feather feather-download">
+                                <path d="M3 17v3a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3"></path>
+                                <polyline points="8 12 12 16 16 12"></polyline>
+                                <line x1="12" y1="2" x2="12" y2="16"></line>
+                            </svg>
+                        </span>
+                        <span class="sidebar-nav-name">
+                            Exportar a Game Engine
+                        </span>
+                        <span class="sidebar-nav-end">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="feather feather-chevron-right nav-collapse-icon">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </span>
+                    </a>
+
+                    <ul class="sidebar-sub-nav collapse" id="export">
+                        <li class="sidebar-nav-item">
+                            <div class="sidebar-nav-link" onclick="exportUnity()">
+                                <span class="sidebar-nav-abbr">
+
+                                </span>
+                                <span class="sidebar-nav-name">
+                                    Unity
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+        <!-- FIN MENU LATERAL -->
 
 
         <!-- CONTENIDO CENTRAL -->
@@ -87,18 +207,69 @@
         </div>
         <!-- FIN CONTENIDO CENTRAL -->
 
+        
+        <!-- MODAL ABRIR PROYECTO -->
+        <div class="modal fade" id="openSheetModal" tabindex="-1" role="dialog" aria-labelledby="openModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="openModalLabel">Abrir un Proyecto</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="form-label">Nombre</label>
+                            <input class="form-control" id="openSheetName">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="openSheet($('#openSheetName').val())">Aceptar</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- FIN MODAL ABRIR PROYECTO -->
+
+
+        <!-- MODAL GUARDAR PROYECTO -->
+        <div class="modal fade" id="saveSheetModal" tabindex="-1" role="dialog" aria-labelledby="saveModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="saveModalLabel">Guardar Proyecto</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="form-label">Nombre</label>
+                            <input class="form-control" id="saveSheetName">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="saveSheet($('#saveSheetName').val())">Aceptar</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- FIN MODAL GUARDAR PROYECTO -->
+
 
     </div>
 
-    <!-- SCRIPTS -->
-    <script src="../js/client.js"></script>
-    <script src="../js/app.js"></script>
-    <script src="../js/event_test.js"></script>
-    <script src="../js/event.component.js"></script>
+    <!-- SCRIPTS POSTLOAD -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
     <script src="../libs/swal2/sweetalert2.all.js"></script>
+    <!-- FIN SCRIPTS POSTLOAD -->
 </body>
 
 </html>

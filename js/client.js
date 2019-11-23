@@ -1,21 +1,115 @@
-function makeAPICall(e, callback) {
+var apiURL = "http://localhost:5000/api/";
+
+function makeAPICall(e, endpoint, method, successCallback, errorCallback) {
   $.ajax({
-    url: "/api/" + e.getAttribute("entity") + "/" + e.getAttribute("object_id"),
-    method: e.getAttribute("action"),
-    success: callback
+    data: JSON.stringify(e),
+    url: apiURL + endpoint,
+    method: method,
+    dataType: "json",
+    contentType: "application/json",
+    success: successCallback,
+    error: errorCallback
   });
 }
 
-function makeRedirection(e) {
-  document.location = document.location.protocol + "//" + document.location.host + "/" + e.getAttribute("entity") + "/" + e.getAttribute("action");
+function persistSession(events, entities) {
+  sessionStorage["eventSheet"] = customStringify({ "entities": entities, "events": events });
 }
 
-function mongoInsertItem(e) {
-  $.ajax({
-    url: "/api/" + e.getAttribute("entity"),
-    method: "post",
-    success: function (obj) { document.location = document.location.protocol + "//" + document.location.host + "/" + e.getAttribute("entity") + "/edit?id=" + obj.id; }
+function newSheet() {
+  Swal.fire({
+    title: '¿Desea crear un nuevo proyecto?',
+    type: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    cancelButtonText: 'Cancelar',
+    confirmButtonText: 'Aceptar'
+  }).then(function (res) {
+    if (res.value) {
+      sessionStorage.removeItem("eventSheet");
+      document.location.reload();
+    }
   });
+}
+
+function openSheet(sheetName) {
+  var data = {"name": sheetName};
+
+  errorCallback = function () {
+    Swal.fire({
+      type: 'error',
+      title: 'Error al abrir proyecto',
+      text: 'Ha ocurrido un error al recuperar el proyecto desde la base de datos',
+    });
+  }
+
+  makeAPICall(data, "load", "POST", function (e) { 
+    sessionStorage["eventSheet"] = customStringify({ "entities": e.entities, "events": e.events });
+    document.location.reload();
+  }, errorCallback);
+}
+
+function saveSheet(sheetName) {
+  var evAndEnt = JSON.parse(sessionStorage["eventSheet"]);
+  evAndEnt.name = sheetName;
+
+  errorCallback = function () {
+    Swal.fire({
+      type: 'error',
+      title: 'Error al guardar proyecto',
+      text: 'Ha ocurrido un error durante el guardado del proyecto en la base de datos',
+    });
+  }
+
+  makeAPICall(evAndEnt, "save", "POST", function () { }, errorCallback);
+}
+
+function exportUnity() {
+  var evAndEnt = JSON.parse(sessionStorage["eventSheet"]);
+
+  errorCallback = function () {
+    Swal.fire({
+      type: 'error',
+      title: 'Error al generar archivos',
+      text: 'Ha ocurrido un error durante la generación de archivos',
+    });
+  }
+
+  makeAPICall(evAndEnt, "eventcodegenerator", "POST", function (data) { downloadData(data) }, errorCallback);
+
+  for (var i = 0; i < evAndEnt.entities.length; i++) {
+    makeAPICall({ "entity": evAndEnt.entities[i] }, "entitycodegenerator", "POST", function (data) { downloadData(data) }, errorCallback);
+  }
+}
+
+function getNewUniFaceSheet() {
+  return { "entities": [{ "name": "System", "attributes": [] }], "events": [] };
+}
+
+function downloadData(data) {
+  var blob = new Blob([data.content], { type: "text/plain" });
+  var url = window.URL.createObjectURL(blob);
+
+  var a = document.createElement('a');
+  a.href = url;
+  a.download = data.name;
+  a.click();
+
+  window.URL.revokeObjectURL(url);
+}
+
+// Realiza stringify eliminando basura insertada por Angular
+function customStringify(e) {
+  var json = JSON.stringify(e, function (key, value) {
+    if (key === "$$hashKey") {
+      return undefined;
+    }
+
+    return value;
+  });
+
+  return json;
 }
 
 // Convierte operadores de un formato a otro

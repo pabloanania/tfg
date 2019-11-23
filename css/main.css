@@ -66,3 +66,8 @@ button.btn.btn-small.oi.oi-trash {
 .low-padding{
     padding: 0.5rem!important;
 }
+
+/* PANEL LATERAL */
+.sidebar-nav-link{
+    cursor: pointer;
+}
