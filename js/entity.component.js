@@ -7,7 +7,7 @@ angular.module('UniFaceApp').component('entityList', {
       <div class="table-responsive-md">
         <table class="table table-actions table-striped table-hover mb-0">
           <tbody ng-repeat="(key, val) in entities track by $index">
-            <tr class="action-el">
+            <tr class="condition-el">
               <td>
                 <span class="badge badge-pill condition-action-el badge-primary">{{entities[key].name}}</span>
               </td>

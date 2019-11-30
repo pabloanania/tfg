@@ -42,7 +42,39 @@ button.btn.btn-small.oi.oi-trash {
     background-color: #dc3545;
 }
 
+.dropdown-toggle {
+    cursor: pointer;
+}
+
+.dropdown-item {
+    cursor: pointer;
+}
+
 /* TABLA */
+.table-striped tbody tr.condition-el:nth-of-type(odd){
+    background-color:#e0e0e0;
+}
+
+.table-striped tbody tr.condition-el:nth-of-type(even){
+    background-color:#e0e0e0;
+}
+
+.table-striped tbody tr.action-el:nth-of-type(odd){
+    background-color:#fafafa;
+}
+
+.table-striped tbody tr.action-el:nth-of-type(even){
+    background-color:#fafafa;
+}
+
+.table-striped tbody tr.new-event-el, .table-striped tbody tr.new-entity-el{
+    background-color:#f9f9f9;
+}
+
+.low-padding{
+    padding: 0.5rem!important;
+}
+/*
 .table-striped tbody tr.condition-el:nth-of-type(odd){
     background-color:#e0e0e0;
 }
@@ -66,7 +98,7 @@ button.btn.btn-small.oi.oi-trash {
 .low-padding{
     padding: 0.5rem!important;
 }
-
+*/
 /* PANEL LATERAL */
 .sidebar-nav-link{
     cursor: pointer;
