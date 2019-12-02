@@ -61,16 +61,13 @@ app.post('/api/save/', (req, res) => {
             endByError(res, "Error al intentar guardar el proyecto", 400);
         } else {
             if (data.length == 0) {
-                mongoInsert(req.body, databaseName, "uniface", function (i_res, err) {
-                    if (err) {
-                        if (err.code == 11000)
-                            endByError(res, "El proyecto que intenta crear ya existe", 400);
-                    } else {
-                        res.status(201).send();
-                    }
-                });
+                mongoInsert(req.body, databaseName, "uniface");
+
+                res.status(201).json({ "status": "created" });
             } else {
                 mongoUpdateOne({ "name": req.body.name }, req.body, databaseName, "uniface");
+
+                res.status(200).json({ "status": "updated" });
             }
         }
     });

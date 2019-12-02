@@ -1,6 +1,6 @@
 # TFG - Prototype
 ## TO DO
-* Pacman
+* Nothing for now :)
 
 ## TO FIX
 * Mientras más veces se llama a generar código (sin apagar server), más veces se generan InvokeCallback duplicados
