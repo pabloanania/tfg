@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 33587829064135548}
   - component: {fileID: 23530831285104968}
   - component: {fileID: 135349374519712056}
-  - component: {fileID: 114034338596747516}
   - component: {fileID: 54361877679062858}
   m_Layer: 0
   m_Name: Pellet_Entity
@@ -101,18 +100,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &114034338596747516
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1518193491844908}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8fc6788f3bb1bb42a033b4d5da99c8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collisions: []
 --- !u!135 &135349374519712056
 SphereCollider:
   m_ObjectHideFlags: 1
